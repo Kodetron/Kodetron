@@ -1,0 +1,5 @@
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/CMakeFiles/Kodetron.dir
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/CMakeFiles/edit_cache.dir
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/CMakeFiles/rebuild_cache.dir
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/CMakeFiles/Kodetron_autogen_timestamp_deps.dir
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/CMakeFiles/Kodetron_autogen.dir
