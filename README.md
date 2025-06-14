@@ -5,9 +5,9 @@ Kodetron IDE Repository
 Natilla de la Abuela
 
 ### Members
-Daniel Libardo Diaz Gonzalez - dandiazgo@unal.edu.co
-Andrés Felipe León Sánchez - anleonsa@unal.edu.co
-Alejandro Medina Rojas - alemedinaro@unal.edu.co
+Daniel Libardo Diaz Gonzalez - dandiazgo@unal.edu.co  
+Andrés Felipe León Sánchez - anleonsa@unal.edu.co  
+Alejandro Medina Rojas - alemedinaro@unal.edu.co  
 Angel David Ruiz Barbosa - aruizba@unal
 
 ### Description
