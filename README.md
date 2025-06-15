@@ -1,7 +1,7 @@
 # Kodetron
 Kodetron IDE Repository
 
-![Kodetron Logo](assets/logo.png)
+![Kodetron Logo](assets/Logo.png)
 
 ## Developer Group
 Natilla de la Abuela
@@ -14,6 +14,10 @@ Angel David Ruiz Barbosa - aruizba@unal.edu.co
 
 ## Description
 Kodetron is a text editor specifically designed for C++ development within the context of competitive programming.
+
+## Documentation
+
+If you want further documentation, please check out our [documentation repository](https://github.com/Kodetron/Documentation/tree/main), where all our development journey, requirements, use cases and planning is available.
 
 ## Features
 - [ ] Text editing with syntax highlighting for C++
