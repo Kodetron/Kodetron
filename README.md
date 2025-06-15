@@ -7,9 +7,12 @@ Kodetron IDE Repository
 Natilla de la Abuela
 
 ## Members
-Daniel Libardo Diaz Gonzalez - dandiazgo@unal.edu.co available at [DaniDiazTech](danidiaztech.com)
-Andrés Felipe León Sánchez - anleonsa@unal.edu.co  
-Alejandro Medina Rojas - alemedinaro@unal.edu.co  
+Daniel Libardo Diaz Gonzalez - dandiazgo@unal.edu.co available at [DaniDiazTech](https://danidiaztech.com/)
+
+Andrés Felipe León Sánchez - anleonsa@unal.edu.co avaliable at [Anfelesan](https://anfelesan.netlify.app/)
+
+Alejandro Medina Rojas - alemedinaro@unal.edu.co
+
 Angel David Ruiz Barbosa - aruizba@unal.edu.co
 
 ## Description
