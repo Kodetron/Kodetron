@@ -1,7 +1,7 @@
 # Kodetron
 Kodetron IDE Repository
 
-![Kodetron Logo](assets/Logo.png)
+<img src="assets/Logo.png" width="200">
 
 ## Developer Group
 Natilla de la Abuela
