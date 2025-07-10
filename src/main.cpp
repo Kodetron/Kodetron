@@ -13,13 +13,12 @@
 #include <QVBoxLayout>  // For vertical layout
 
 int main(int argc, char *argv[]) {
-    // Creates application instance
+    // Creates application instance   
     QApplication application(argc, argv);
 
     // Creates the main window for the application
     QMainWindow main_window;
     main_window.setWindowTitle("Kodetron");
-    main_window.showMaximized();
 
     // Creates a central widget to hold the layout
     QWidget *central_widget = new QWidget(&main_window);
@@ -29,7 +28,7 @@ int main(int argc, char *argv[]) {
     QVBoxLayout *main_layout = new QVBoxLayout(central_widget);
 
     // Creates a text editor widget that allows users to edit text
-    QTextEdit *text_editor = new QTextEdit(&main_window);
+    QT  extEdit *text_editor = new QTextEdit(&main_window);
 
     // Creates the text editor widget for standard input
     QTextEdit *input_editor = new QTextEdit(&main_window);
@@ -127,6 +126,7 @@ int main(int argc, char *argv[]) {
     file_menu->addAction(exit_action);
     QObject::connect(exit_action, &QAction::triggered, &QApplication::quit);
 
+    main_window.showMaximized();
     main_window.show();
 
     // Starts the application event loop, this makes the GUI responsive.
