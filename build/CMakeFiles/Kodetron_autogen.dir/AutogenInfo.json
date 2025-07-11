@@ -339,7 +339,27 @@
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/Kodetron_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "Kodetron_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.h",
+			"MU",
+			"RZ4CM6YYJ6/moc_CodeEditor.cpp",
+			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/LineNumberArea.h",
+			"MU",
+			"RZ4CM6YYJ6/moc_LineNumberArea.cpp",
+			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.h",
+			"MU",
+			"GJAJGHVCSV/moc_FileMenuActions.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/Kodetron_autogen/include",
 	"MOC_COMPILATION_FILE" : "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build/Kodetron_autogen/mocs_compilation.cpp",
@@ -368,6 +388,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets",
+		"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus",
 		"C:/Boost/Libraries/include/boost-1_88",
 		"C:/Qt/6.9.1/mingw_64/include/QtWidgets",
 		"C:/Qt/6.9.1/mingw_64/include",
@@ -416,6 +438,21 @@
 	[
 		[
 			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/main.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/LineNumberArea.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp",
 			"MU",
 			null
 		]

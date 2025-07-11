@@ -108,16 +108,67 @@ CMakeFiles/Kodetron.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kodetron.dir/src/main.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\main.cpp -o CMakeFiles\Kodetron.dir\src\main.cpp.s
 
+CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj: CMakeFiles/Kodetron.dir/flags.make
+CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj: CMakeFiles/Kodetron.dir/includes_CXX.rsp
+CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.cpp
+CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj: CMakeFiles/Kodetron.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj -MF CMakeFiles\Kodetron.dir\src\widgets\CodeEditor.cpp.obj.d -o CMakeFiles\Kodetron.dir\src\widgets\CodeEditor.cpp.obj -c C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\CodeEditor.cpp
+
+CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\CodeEditor.cpp > CMakeFiles\Kodetron.dir\src\widgets\CodeEditor.cpp.i
+
+CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\CodeEditor.cpp -o CMakeFiles\Kodetron.dir\src\widgets\CodeEditor.cpp.s
+
+CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj: CMakeFiles/Kodetron.dir/flags.make
+CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj: CMakeFiles/Kodetron.dir/includes_CXX.rsp
+CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/LineNumberArea.cpp
+CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj: CMakeFiles/Kodetron.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj -MF CMakeFiles\Kodetron.dir\src\widgets\LineNumberArea.cpp.obj.d -o CMakeFiles\Kodetron.dir\src\widgets\LineNumberArea.cpp.obj -c C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\LineNumberArea.cpp
+
+CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\LineNumberArea.cpp > CMakeFiles\Kodetron.dir\src\widgets\LineNumberArea.cpp.i
+
+CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\LineNumberArea.cpp -o CMakeFiles\Kodetron.dir\src\widgets\LineNumberArea.cpp.s
+
+CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj: CMakeFiles/Kodetron.dir/flags.make
+CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj: CMakeFiles/Kodetron.dir/includes_CXX.rsp
+CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp
+CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj: CMakeFiles/Kodetron.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj -MF CMakeFiles\Kodetron.dir\src\widgets\menus\FileMenuActions.cpp.obj.d -o CMakeFiles\Kodetron.dir\src\widgets\menus\FileMenuActions.cpp.obj -c C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\menus\FileMenuActions.cpp
+
+CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\menus\FileMenuActions.cpp > CMakeFiles\Kodetron.dir\src\widgets\menus\FileMenuActions.cpp.i
+
+CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\widgets\menus\FileMenuActions.cpp -o CMakeFiles\Kodetron.dir\src\widgets\menus\FileMenuActions.cpp.s
+
 # Object files for target Kodetron
 Kodetron_OBJECTS = \
 "CMakeFiles/Kodetron.dir/Kodetron_autogen/mocs_compilation.cpp.obj" \
-"CMakeFiles/Kodetron.dir/src/main.cpp.obj"
+"CMakeFiles/Kodetron.dir/src/main.cpp.obj" \
+"CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj" \
+"CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj" \
+"CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj"
 
 # External object files for target Kodetron
 Kodetron_EXTERNAL_OBJECTS =
 
 Kodetron.exe: CMakeFiles/Kodetron.dir/Kodetron_autogen/mocs_compilation.cpp.obj
 Kodetron.exe: CMakeFiles/Kodetron.dir/src/main.cpp.obj
+Kodetron.exe: CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj
+Kodetron.exe: CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj
+Kodetron.exe: CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj
 Kodetron.exe: CMakeFiles/Kodetron.dir/build.make
 Kodetron.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a
 Kodetron.exe: C:/Boost/Libraries/lib/libboost_system-mgw15-mt-d-x64-1_88.a
@@ -129,7 +180,7 @@ Kodetron.exe: C:/Boost/Libraries/lib/libboost_atomic-mgw15-mt-d-x64-1_88.a
 Kodetron.exe: CMakeFiles/Kodetron.dir/linkLibs.rsp
 Kodetron.exe: CMakeFiles/Kodetron.dir/objects1.rsp
 Kodetron.exe: CMakeFiles/Kodetron.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Kodetron.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Kodetron.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Kodetron.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

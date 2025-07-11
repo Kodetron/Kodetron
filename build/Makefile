@@ -202,6 +202,78 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/widgets/CodeEditor.obj: src/widgets/CodeEditor.cpp.obj
+.PHONY : src/widgets/CodeEditor.obj
+
+# target to build an object file
+src/widgets/CodeEditor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj
+.PHONY : src/widgets/CodeEditor.cpp.obj
+
+src/widgets/CodeEditor.i: src/widgets/CodeEditor.cpp.i
+.PHONY : src/widgets/CodeEditor.i
+
+# target to preprocess a source file
+src/widgets/CodeEditor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.i
+.PHONY : src/widgets/CodeEditor.cpp.i
+
+src/widgets/CodeEditor.s: src/widgets/CodeEditor.cpp.s
+.PHONY : src/widgets/CodeEditor.s
+
+# target to generate assembly for a file
+src/widgets/CodeEditor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.s
+.PHONY : src/widgets/CodeEditor.cpp.s
+
+src/widgets/LineNumberArea.obj: src/widgets/LineNumberArea.cpp.obj
+.PHONY : src/widgets/LineNumberArea.obj
+
+# target to build an object file
+src/widgets/LineNumberArea.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj
+.PHONY : src/widgets/LineNumberArea.cpp.obj
+
+src/widgets/LineNumberArea.i: src/widgets/LineNumberArea.cpp.i
+.PHONY : src/widgets/LineNumberArea.i
+
+# target to preprocess a source file
+src/widgets/LineNumberArea.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.i
+.PHONY : src/widgets/LineNumberArea.cpp.i
+
+src/widgets/LineNumberArea.s: src/widgets/LineNumberArea.cpp.s
+.PHONY : src/widgets/LineNumberArea.s
+
+# target to generate assembly for a file
+src/widgets/LineNumberArea.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.s
+.PHONY : src/widgets/LineNumberArea.cpp.s
+
+src/widgets/menus/FileMenuActions.obj: src/widgets/menus/FileMenuActions.cpp.obj
+.PHONY : src/widgets/menus/FileMenuActions.obj
+
+# target to build an object file
+src/widgets/menus/FileMenuActions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj
+.PHONY : src/widgets/menus/FileMenuActions.cpp.obj
+
+src/widgets/menus/FileMenuActions.i: src/widgets/menus/FileMenuActions.cpp.i
+.PHONY : src/widgets/menus/FileMenuActions.i
+
+# target to preprocess a source file
+src/widgets/menus/FileMenuActions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.i
+.PHONY : src/widgets/menus/FileMenuActions.cpp.i
+
+src/widgets/menus/FileMenuActions.s: src/widgets/menus/FileMenuActions.cpp.s
+.PHONY : src/widgets/menus/FileMenuActions.s
+
+# target to generate assembly for a file
+src/widgets/menus/FileMenuActions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.s
+.PHONY : src/widgets/menus/FileMenuActions.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -219,6 +291,15 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/widgets/CodeEditor.obj
+	@echo ... src/widgets/CodeEditor.i
+	@echo ... src/widgets/CodeEditor.s
+	@echo ... src/widgets/LineNumberArea.obj
+	@echo ... src/widgets/LineNumberArea.i
+	@echo ... src/widgets/LineNumberArea.s
+	@echo ... src/widgets/menus/FileMenuActions.obj
+	@echo ... src/widgets/menus/FileMenuActions.i
+	@echo ... src/widgets/menus/FileMenuActions.s
 .PHONY : help
 
 

@@ -1,7 +1,7 @@
 CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\src\main.cpp \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qglobal.h \
@@ -154,9 +154,9 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qnamespace.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qchar.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcompare.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcomparehelpers.h \
@@ -188,14 +188,22 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/vector.tcc \
  C:/msys64/ucrt64/include/c++/15.1.0/array \
  C:/msys64/ucrt64/include/c++/15.1.0/compare \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstringview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearray.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
- C:/msys64/ucrt64/include/c++/15.1.0/memory \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_raw_storage_iter.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/align.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/unique_ptr.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpair.h \
+ C:/msys64/ucrt64/include/string.h \
+ C:/msys64/ucrt64/include/sec_api/string_s.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydatapointer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydataops.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/cstring \
+ C:/msys64/ucrt64/include/c++/15.1.0/iterator \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/stream_iterator.h \
  C:/msys64/ucrt64/include/c++/15.1.0/iosfwd \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/stringfwd.h \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/postypes.h \
@@ -207,8 +215,16 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/_mingw_stat64.h \
  C:/msys64/ucrt64/include/swprintf.inl \
  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_base.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/allocated_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/streambuf_iterator.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/streambuf \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/localefwd.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/c++locale.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/clocale \
+ C:/msys64/ucrt64/include/locale.h C:/msys64/ucrt64/include/stdio.h \
+ C:/msys64/ucrt64/include/sec_api/stdio_s.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/cctype \
+ C:/msys64/ucrt64/include/ctype.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/ios_base.h \
  C:/msys64/ucrt64/include/c++/15.1.0/ext/atomicity.h \
  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr.h \
  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr-default.h \
@@ -225,38 +241,6 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/sched.h \
  C:/msys64/ucrt64/include/pthread_unistd.h \
  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/atomic_word.h \
- C:/msys64/ucrt64/include/c++/15.1.0/ext/concurrence.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_atomic.h \
- C:/msys64/ucrt64/include/c++/15.1.0/backward/auto_ptr.h \
- C:/msys64/ucrt64/include/c++/15.1.0/pstl/glue_memory_defs.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qchar.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstringview.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearray.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qpair.h \
- C:/msys64/ucrt64/include/string.h \
- C:/msys64/ucrt64/include/sec_api/string_s.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydatapointer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydataops.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
- C:/msys64/ucrt64/include/c++/15.1.0/cstring \
- C:/msys64/ucrt64/include/c++/15.1.0/iterator \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/stream_iterator.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/streambuf_iterator.h \
- C:/msys64/ucrt64/include/c++/15.1.0/streambuf \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/localefwd.h \
- C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/c++locale.h \
- C:/msys64/ucrt64/include/c++/15.1.0/clocale \
- C:/msys64/ucrt64/include/locale.h C:/msys64/ucrt64/include/stdio.h \
- C:/msys64/ucrt64/include/sec_api/stdio_s.h \
- C:/msys64/ucrt64/include/c++/15.1.0/cctype \
- C:/msys64/ucrt64/include/ctype.h \
- C:/msys64/ucrt64/include/c++/15.1.0/bits/ios_base.h \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.h \
  C:/msys64/ucrt64/include/c++/15.1.0/string \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/char_traits.h \
@@ -275,6 +259,17 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/error_constants.h \
  C:/msys64/ucrt64/include/c++/15.1.0/stdexcept \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/streambuf.tcc \
+ C:/msys64/ucrt64/include/c++/15.1.0/memory \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_raw_storage_iter.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/align.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/unique_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_base.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/allocated_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/ext/concurrence.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_atomic.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/backward/auto_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.1.0/pstl/glue_memory_defs.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20memory.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
@@ -293,6 +288,13 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringbuilder.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter_base.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qhashfunctions.h \
  C:/msys64/ucrt64/include/c++/15.1.0/numeric \
@@ -328,17 +330,23 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.1.0/bits/chrono.h \
  C:/msys64/ucrt64/include/c++/15.1.0/ratio \
  C:/msys64/ucrt64/include/c++/15.1.0/ctime \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qnativeinterface.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixmap.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
@@ -352,6 +360,9 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.1.0/cassert \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20iterator.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qline.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qinputmethod.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h \
@@ -369,6 +380,13 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
@@ -377,26 +395,6 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfontinfo.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfontvariableaxis.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qnativeinterface.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qinputmethod.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qlocale.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTextEdit \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtextedit.h \
@@ -472,4 +470,47 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QFileInfo \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfileinfo.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDockWidget \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdockwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPlainTextEdit \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qplaintextedit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtextedit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qabstracttextdocumentlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qeventpoint.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qvector2d.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpointingdevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qinputdevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qscreen.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QRect \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QTransform \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtransform.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qglyphrun.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qrawfont.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qfontdatabase.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
+ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.h
