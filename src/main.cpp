@@ -6,7 +6,7 @@
 #include <QAction>      // Actions for menus/toolbars
 #include <QFileDialog>  // For opening/saving files
 #include <QFile>        // For file I/O
-#include <QTextStream>  // For reading/writing text
+#include <QTextStream>  // For reading/writing textgit 
 #include <QMessageBox>  // For displaying messages
 #include <QSplitter>    // For creating resizable sections
 #include <QVBoxLayout>  // For vertical layout
