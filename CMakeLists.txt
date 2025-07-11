@@ -24,6 +24,7 @@ set(KODETRON_SOURCES
     src/widgets/CodeEditor.cpp
     src/widgets/LineNumberArea.cpp
     src/widgets/menus/FileMenuActions.cpp
+    src/widgets/toolbar/ToolbarManager.cpp
 )
 
 # Define all header files for your project (optional, but good for clarity)
@@ -31,6 +32,7 @@ set(KODETRON_HEADERS
     src/widgets/CodeEditor.h
     src/widgets/LineNumberArea.h
     src/widgets/menus/FileMenuActions.h
+    src/widgets/toolbar/ToolbarManager.h
 )
 
 # Add your executable, including all source files
@@ -41,6 +43,7 @@ add_executable(${PROJECT_NAME} ${KODETRON_SOURCES} ${KODETRON_HEADERS}) # Includ
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
 )
 
 # Link Qt libraries
