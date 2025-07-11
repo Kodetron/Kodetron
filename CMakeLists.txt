@@ -18,13 +18,6 @@ if (TARGET Qt6::Widgets)
     # target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 endif()
 
-# Find Boost
-set(BOOST_ROOT "C:/Boost/Libraries")
-find_package(Boost 1.88 COMPONENTS system filesystem REQUIRED)
-
-# Add include directories
-include_directories(${Boost_INCLUDE_DIRS})
-
 # Define all source files for your project
 set(KODETRON_SOURCES
     src/main.cpp
@@ -57,7 +50,3 @@ if (TARGET Qt6::Widgets)
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 endif()
-
-
-# Link Boost libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE ${Boost_LIBRARIES})
