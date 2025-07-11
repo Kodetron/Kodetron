@@ -1134,6 +1134,7 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNA
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
@@ -1217,6 +1218,7 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNA
   C:/Qt/6.9.1/mingw_64/include/QtCore/qprocessordetection.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qscopeguard.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
@@ -1318,6 +1320,7 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNA
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtransform.h \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qvector2d.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
@@ -1332,11 +1335,15 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNA
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPlainTextEdit \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyle \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyleOption \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTextEdit \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
@@ -1353,8 +1360,13 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: C:/Users/aleja/OneDrive/Documentos/UNA
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qplaintextedit.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h \
@@ -3337,6 +3349,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qglobal.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydatapointer.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qmetacontainer.h:
@@ -3451,6 +3465,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake:
 
 CMakeFiles/4.0.2/CMakeCCompiler.cmake:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qflags.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h:
@@ -3477,6 +3493,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qglobalstatic.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyle:
+
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CorePrivate/Qt6CorePrivateConfigVersion.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qhashfunctions.h:
@@ -3502,6 +3520,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/iterator:
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qlatin1stringview.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h:
 
@@ -3767,6 +3787,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qpointingdevice.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtGui/qrawfont.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake:
@@ -3810,6 +3832,8 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget:
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomLicenseHelpers.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h:
 
@@ -4034,6 +4058,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateDependencies.cmake:
 C:/msys64/ucrt64/include/c++/15.1.0/bits/atomic_lockfree_defines.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateTargets.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyleOption:
 
 C:/msys64/ucrt64/include/_mingw_secapi.h:
 
@@ -4267,6 +4293,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/c++allocator.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/climits:
 
+C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h:
+
 C:/msys64/ucrt64/include/c++/15.1.0/cmath:
 
 C:/msys64/ucrt64/include/c++/15.1.0/compare:
@@ -4453,11 +4481,15 @@ Kodetron_autogen/RZ4CM6YYJ6/moc_CodeEditor.cpp:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/QFileInfo:
 
+C:/Qt/6.9.1/mingw_64/include/QtCore/qabstractitemmodel.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qdirlisting.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtGui/qvalidator.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication:
 
@@ -4468,6 +4500,8 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLabel:
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenuBar:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTextEdit:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h:
 
@@ -4480,6 +4514,8 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h:
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlabel.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h:
 

@@ -485,6 +485,19 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyle \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyleOption \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPlainTextEdit \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qplaintextedit.h \

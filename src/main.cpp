@@ -16,6 +16,8 @@
 #include <QToolButton>  // For icon-only buttons in the dock widget
 #include <QIcon>        // For setting icons on QToolButton
 #include <QSize>        // For specifying icon size
+#include <QStyle>       // For standard icons
+#include <QStyleOption> // For standard icons
 
 #include "CodeEditor.h"
 #include "FileMenuActions.h"
@@ -34,9 +36,7 @@ int main(int argc, char *argv[]) {
 
     // Creates a vertical layout for the main window content
     QVBoxLayout *main_layout = new QVBoxLayout(central_widget);
-    // Set margins to 0 for the main layout to ensure it fills the central widget
     main_layout->setContentsMargins(0, 0, 0, 0);
-
 
     // Creates a text editor widget for coding
     CodeEditor *text_editor = new CodeEditor(&main_window);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     output_editor->setReadOnly(true);
     output_editor->setPlaceholderText("Standard Output");
 
-    // Creates the text editor widget for standard output exmaples
+    // Creates the text editor widget for standard output examples
     CodeEditor *output_examples_editor = new CodeEditor(&main_window);
     output_examples_editor->setPlaceholderText("Output Examples");
 
@@ -63,84 +63,83 @@ int main(int argc, char *argv[]) {
     input_output_splitter->addWidget(input_editor);
     input_output_splitter->addWidget(output_editor);
 
+    editor_io_splitter->addWidget(input_output_splitter);
 
-    // Creates a horizontal splitter for the standard output and standard output examples
-    QSplitter *output_main_splitter = new QSplitter(Qt::Vertical, input_output_splitter);
-    output_main_splitter->addWidget(output_editor);
-    output_main_splitter->addWidget(output_examples_editor);
-    output_main_splitter->hide(); // Initially hide the output examples splitter
+    // Create a horizontal splitter to hold standard output and example output
+    QSplitter *output_horizontal_splitter = new QSplitter(Qt::Horizontal);
+    output_horizontal_splitter->addWidget(output_editor);
+    output_horizontal_splitter->addWidget(output_examples_editor);
+    output_horizontal_splitter->hide();
 
     // Set the editor_io_splitter as the main content of the central widget's layout
     main_layout->addWidget(editor_io_splitter);
 
-
-    // Create the QDockWidget for the right sidebar
+    // Creates the QDockWidget for the sidebar
     QDockWidget *sidebar_dock_widget = new QDockWidget(&main_window);
     sidebar_dock_widget->setAllowedAreas(Qt::LeftDockWidgetArea);
     sidebar_dock_widget->setFeatures(QDockWidget::NoDockWidgetFeatures);
 
-    // Create a widget to hold content for the dock widget
+    // Creates a widget to hold content for the dock widget
     QWidget *sidebar_content_widget = new QWidget(sidebar_dock_widget);
     QVBoxLayout *sidebar_layout = new QVBoxLayout(sidebar_content_widget);
     sidebar_layout->setContentsMargins(0, 0, 0, 0);
     sidebar_layout->setSpacing(0);
 
     QToolButton *toggle_output_examples_button = new QToolButton(sidebar_content_widget);
-    toggle_output_examples_button->setIcon(QIcon("C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/icons/comparison.png"));
+    QIcon documentIcon = main_window.style()->standardIcon(QStyle::SP_FileIcon);
+    toggle_output_examples_button->setIcon(documentIcon);
+    toggle_output_examples_button->setIconSize(QSize(32, 32));
+    toggle_output_examples_button->setToolTip("Toggle Output Examples Window");
+    toggle_output_examples_button->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
-    toggle_output_examples_button->setIconSize(QSize(32, 32)); // Set icon size
-    toggle_output_examples_button->setToolTip("Toggle Output Examples Window"); // Tooltip for clarity
-    toggle_output_examples_button->setToolButtonStyle(Qt::ToolButtonIconOnly); // Ensure only icon is shown
+    bool examples_visible = false;
 
-    // Connect the button to toggle the visibility of the output_main_splitter
+    // Connect the button to toggle the visibility of the output examples
     QObject::connect(toggle_output_examples_button, &QToolButton::clicked, [&]() {
-        if (output_main_splitter->isVisible()) {
-            // If visible, hide it and replace output_main_splitter with output_editor
-            output_main_splitter->hide(); // Changed line
-            // Find the index of output_main_splitter in input_output_splitter
-            int index = input_output_splitter->indexOf(output_main_splitter); // Added line
-            if (index != -1) { // Added line
-                // Remove output_main_splitter (which contains output_editor and output_examples_editor)
-                // and re-insert just output_editor at the same position.
-                // QSplitter doesn't have removeWidget, so we manage visibility and re-parenting.
-                // The trick is to ensure output_editor is always a direct child of input_output_splitter
-                // when output_main_splitter is hidden.
-                // This approach ensures output_editor remains visible and correctly sized.
-                output_main_splitter->setParent(nullptr); // Detach from its current parent
-                input_output_splitter->insertWidget(index, output_editor); // Insert output_editor back
-                output_editor->show(); // Ensure it's visible
+        // Save current sizes to restore later
+        QList<int> editor_io_sizes = editor_io_splitter->sizes();
+        QList<int> input_output_sizes = input_output_splitter->sizes();
+        
+        if (!examples_visible) {
+            output_editor->setParent(nullptr);
+            
+            while (output_horizontal_splitter->count() > 0) {
+                QWidget *w = output_horizontal_splitter->widget(0);
+                w->setParent(nullptr);
             }
-            // Ensure input_editor takes up all space when output_main_splitter is hidden
-            input_output_splitter->setSizes(QList<int>() << input_editor->height() << output_editor->height()); // Changed line
+            output_horizontal_splitter->addWidget(output_editor);
+            output_horizontal_splitter->addWidget(output_examples_editor);
+            
+            input_output_splitter->addWidget(output_horizontal_splitter);
+            output_horizontal_splitter->show();
+            
+            output_horizontal_splitter->setSizes(QList<int>({1, 1}));
+            
+            examples_visible = true;
         } else {
-            // If hidden, show it and insert it into the input_output_splitter
-            // First, remove output_editor from input_output_splitter if it's there
-            // Find the index of output_editor in input_output_splitter
-            int index = input_output_splitter->indexOf(output_editor); // Added line
-            if (index != -1) { // Added line
-                output_editor->setParent(nullptr); // Detach output_editor from input_output_splitter
-                input_output_splitter->insertWidget(index, output_main_splitter); // Insert output_main_splitter
-            } else { // Added line
-                // If output_editor was somehow not there, just add output_main_splitter
-                input_output_splitter->addWidget(output_main_splitter); // Added line
-            }
-            output_main_splitter->show(); // Changed line
-            // Set initial sizes for the newly revealed splitter
-            output_main_splitter->setSizes(QList<int>() << output_editor->height() / 2 << output_examples_editor->height() / 2); // Changed line
-            // Adjust the main input/output splitter sizes
-            input_output_splitter->setSizes(QList<int>() << input_editor->height() / 2 << output_main_splitter->height()); // Changed line
+            output_horizontal_splitter->setParent(nullptr);
+            output_horizontal_splitter->hide();
+            
+            output_editor->setParent(nullptr);
+            
+            input_output_splitter->addWidget(output_editor);
+            
+            examples_visible = false;
         }
+        
+        input_output_splitter->setSizes(input_output_sizes);
+        editor_io_splitter->setSizes(editor_io_sizes);
     });
 
     sidebar_layout->addWidget(toggle_output_examples_button);
     sidebar_layout->addStretch(1);
+
     sidebar_dock_widget->setWidget(sidebar_content_widget);
 
-    // Add the dock widget to the main window's right dock area
+    // Add the dock widget to the main window's left dock area
     main_window.addDockWidget(Qt::LeftDockWidgetArea, sidebar_dock_widget);
 
-
-    sidebar_dock_widget->setFixedWidth(100);
+    sidebar_dock_widget->setFixedWidth(50);
 
     // Creates a menu bar for the main window
     QMenuBar *menu_bar = main_window.menuBar();
