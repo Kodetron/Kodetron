@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.cpp" "CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj" "gcc" "CMakeFiles/Kodetron.dir/src/widgets/CodeEditor.cpp.obj.d"
   "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/LineNumberArea.cpp" "CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj" "gcc" "CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj.d"
   "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp" "CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj" "gcc" "CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj.d"
+  "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.cpp" "CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.obj" "gcc" "CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

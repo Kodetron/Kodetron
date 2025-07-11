@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Kodetron.dir/src/widgets/LineNumberArea.cpp.obj.d"
   "CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj"
   "CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj.d"
+  "CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.obj"
+  "CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.obj.d"
   "Kodetron.exe"
   "Kodetron.exe.manifest"
   "Kodetron.pdb"

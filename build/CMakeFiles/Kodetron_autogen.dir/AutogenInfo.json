@@ -358,6 +358,12 @@
 			"MU",
 			"GJAJGHVCSV/moc_FileMenuActions.cpp",
 			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.h",
+			"MU",
+			"RMPQDJEZ3R/moc_ToolbarManager.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -390,6 +396,7 @@
 	[
 		"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets",
 		"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus",
+		"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar",
 		"C:/Boost/Libraries/include/boost-1_88",
 		"C:/Qt/6.9.1/mingw_64/include/QtWidgets",
 		"C:/Qt/6.9.1/mingw_64/include",
@@ -453,6 +460,11 @@
 		],
 		[
 			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.cpp",
 			"MU",
 			null
 		]

@@ -2,3 +2,4 @@
 #include "RZ4CM6YYJ6/moc_CodeEditor.cpp"
 #include "RZ4CM6YYJ6/moc_LineNumberArea.cpp"
 #include "GJAJGHVCSV/moc_FileMenuActions.cpp"
+#include "RMPQDJEZ3R/moc_ToolbarManager.cpp"

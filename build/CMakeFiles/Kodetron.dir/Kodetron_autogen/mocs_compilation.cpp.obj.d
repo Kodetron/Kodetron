@@ -445,4 +445,24 @@ CMakeFiles/Kodetron.dir/Kodetron_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenu \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
- C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.h
+ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/CodeEditor.h \
+ C:\Users\aleja\OneDrive\Documentos\UNAL\2025_S1\INGESOFT_I\Kodetron\build\Kodetron_autogen\RMPQDJEZ3R/moc_ToolbarManager.cpp \
+ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDockWidget \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdockwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyle \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h

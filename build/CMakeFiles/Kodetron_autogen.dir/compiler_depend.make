@@ -209,6 +209,7 @@ Kodetron_autogen/timestamp: C:/Boost/Libraries/lib/cmake/Boost-1.88.0/BoostConfi
   C:/Qt/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QTransform \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qabstracttextdocumentlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
@@ -257,18 +258,32 @@ Kodetron_autogen/timestamp: C:/Boost/Libraries/lib/cmake/Boost-1.88.0/BoostConfi
   C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDockWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenu \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPlainTextEdit \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyle \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdockwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qplaintextedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtextedit.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -458,6 +473,8 @@ Kodetron_autogen/timestamp: C:/Boost/Libraries/lib/cmake/Boost-1.88.0/BoostConfi
   C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/LineNumberArea.h \
   C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp \
   C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.h \
+  C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.cpp \
+  C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.h \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
   C:/msys64/ucrt64/include/_mingw_off_t.h \
@@ -674,11 +691,11 @@ Kodetron_autogen/timestamp: C:/Boost/Libraries/lib/cmake/Boost-1.88.0/BoostConfi
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/requires_hosted.h:
 
+C:/msys64/ucrt64/include/c++/15.1.0/bits/parse_numbers.h:
+
 C:/Boost/Libraries/lib/cmake/Boost-1.88.0/BoostConfig.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/parse_numbers.h:
 
 C:/Boost/Libraries/lib/cmake/boost_headers-1.88.0/boost_headers-config-version.cmake:
 
@@ -699,6 +716,8 @@ C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInform
 C:/Program\ Files/CMake/bin/cmake.exe:
 
 C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/allocator.h:
 
@@ -882,11 +901,13 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qsysinfo.h:
 
 C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU.cmake:
 
+C:/msys64/ucrt64/include/c++/15.1.0/bits/invoke.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h:
+
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/invoke.h:
 
 C:/Program\ Files/CMake/share/cmake-4.0/Modules/Linker/GNU-C.cmake:
 
@@ -897,6 +918,8 @@ C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C-ABI.cmake
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake:
 
 C:/Program\ Files/CMake/share/cmake-4.0/Modules/GNUInstallDirs.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_bvector.h:
 
@@ -962,15 +985,17 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydataops.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/q20memory.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPlainTextEdit:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake:
 
+C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtCore/q20memory.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/q20type_traits.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/functional_hash.h:
 
@@ -1058,11 +1083,11 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qconstructormacros.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerfwd.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h:
+C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/predefined_ops.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h:
+C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake:
 
@@ -1120,6 +1145,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/exception.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qfunctionpointer.h:
 
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.cpp:
+
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/syslimits.h:
 
 C:/msys64/ucrt64/include/stdio.h:
@@ -1129,6 +1156,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qgenericatomic.h:
 C:/Qt/6.9.1/mingw_64/include/QtCore/qglobalstatic.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStyle:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CorePrivate/Qt6CorePrivateConfigVersion.cmake:
 
@@ -1258,9 +1287,11 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/qstringbuilder.h:
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/memoryfwd.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtCore/qstringbuilder.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake:
 
@@ -1274,9 +1305,9 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateConfigVersionImpl.cmak
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstringliteral.h:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CorePrivate/Qt6CorePrivateTargets.cmake:
-
 C:/msys64/ucrt64/include/c++/15.1.0/bits/hashtable_policy.h:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CorePrivate/Qt6CorePrivateTargets.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstringmatcher.h:
 
@@ -1346,6 +1377,12 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake:
 
+C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.tcc:
+
+C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtGui/QTransform:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h:
@@ -1360,13 +1397,13 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/node_handle.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/node_handle.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake:
 
@@ -1383,6 +1420,8 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication.h:
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdockwidget.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h:
 
@@ -1407,6 +1446,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr.h:
 C:/Qt/6.9.1/mingw_64/include/QtGui/qpointingdevice.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qrawfont.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake:
 
@@ -1440,11 +1481,25 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDockWidget:
+
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenu:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_atomic.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake:
+
+C:/msys64/ucrt64/include/c++/15.1.0/memory:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomLicenseHelpers.cmake:
 
@@ -1453,6 +1508,8 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h:
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qplaintextedit.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h:
 
@@ -1528,10 +1585,6 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomGenerationHelpers.cmake:
 
 C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/LineNumberArea.h:
 
-C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/ios_base.h:
-
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomPurlHelpers.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake:
@@ -1547,8 +1600,6 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicWindowsHelpers.cmake:
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/nested_exception.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake:
 
@@ -1652,8 +1703,6 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTarget
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake:
-
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateAdditionalTargetInfo.cmake:
 
 C:/msys64/ucrt64/include/c++/15.1.0/cstdlib:
@@ -1734,6 +1783,10 @@ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/
 
 C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp:
 
+C:/msys64/ucrt64/include/c++/15.1.0/tr1/bessel_function.tcc:
+
+C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.h:
+
 C:/msys64/ucrt64/include/_mingw.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/array:
@@ -1772,9 +1825,11 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/enable_special_members.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/exception_ptr.h:
 
-C:/msys64/ucrt64/include/c++/15.1.0/bits/list.tcc:
+C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr.h:
 
-C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.tcc:
+C:/msys64/ucrt64/include/c++/15.1.0/bits/ios_base.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/list.tcc:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/localefwd.h:
 
@@ -1783,6 +1838,8 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdbool.h:
 C:/msys64/ucrt64/include/c++/15.1.0/bits/memory_resource.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/move.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/nested_exception.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/new_allocator.h:
 
@@ -1797,8 +1854,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_set.h:
 C:/msys64/ucrt64/include/c++/15.1.0/bits/range_access.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/refwrap.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_atomic.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_base.h:
 
@@ -1912,8 +1967,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/list:
 
 C:/msys64/ucrt64/include/c++/15.1.0/map:
 
-C:/msys64/ucrt64/include/c++/15.1.0/memory:
-
 C:/msys64/ucrt64/include/c++/15.1.0/new:
 
 C:/msys64/ucrt64/include/c++/15.1.0/numeric:
@@ -1929,8 +1982,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/stdexcept:
 C:/msys64/ucrt64/include/c++/15.1.0/stdlib.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/string_view:
-
-C:/msys64/ucrt64/include/c++/15.1.0/tr1/bessel_function.tcc:
 
 C:/msys64/ucrt64/include/c++/15.1.0/tr1/exp_integral.tcc:
 

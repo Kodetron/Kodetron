@@ -28,5 +28,11 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_NO_LIB -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Kodetron.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Kodetron.dir\\src\\widgets\\menus\\FileMenuActions.cpp.obj -c C:\\Users\\aleja\\OneDrive\\Documentos\\UNAL\\2025_S1\\INGESOFT_I\\Kodetron\\src\\widgets\\menus\\FileMenuActions.cpp",
   "file": "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.cpp",
   "output": "CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj"
+},
+{
+  "directory": "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_NO_LIB -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Kodetron.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Kodetron.dir\\src\\widgets\\toolbar\\ToolbarManager.cpp.obj -c C:\\Users\\aleja\\OneDrive\\Documentos\\UNAL\\2025_S1\\INGESOFT_I\\Kodetron\\src\\widgets\\toolbar\\ToolbarManager.cpp",
+  "file": "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.cpp",
+  "output": "CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.obj"
 }
 ]

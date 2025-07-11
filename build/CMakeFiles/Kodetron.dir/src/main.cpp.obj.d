@@ -526,4 +526,7 @@ CMakeFiles/Kodetron.dir/src/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrawfont.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfontdatabase.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
- C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.h
+ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/menus/FileMenuActions.h \
+ C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/src/widgets/toolbar/ToolbarManager.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h

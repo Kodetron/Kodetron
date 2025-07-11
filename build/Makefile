@@ -274,6 +274,30 @@ src/widgets/menus/FileMenuActions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.s
 .PHONY : src/widgets/menus/FileMenuActions.cpp.s
 
+src/widgets/toolbar/ToolbarManager.obj: src/widgets/toolbar/ToolbarManager.cpp.obj
+.PHONY : src/widgets/toolbar/ToolbarManager.obj
+
+# target to build an object file
+src/widgets/toolbar/ToolbarManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.obj
+.PHONY : src/widgets/toolbar/ToolbarManager.cpp.obj
+
+src/widgets/toolbar/ToolbarManager.i: src/widgets/toolbar/ToolbarManager.cpp.i
+.PHONY : src/widgets/toolbar/ToolbarManager.i
+
+# target to preprocess a source file
+src/widgets/toolbar/ToolbarManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.i
+.PHONY : src/widgets/toolbar/ToolbarManager.cpp.i
+
+src/widgets/toolbar/ToolbarManager.s: src/widgets/toolbar/ToolbarManager.cpp.s
+.PHONY : src/widgets/toolbar/ToolbarManager.s
+
+# target to generate assembly for a file
+src/widgets/toolbar/ToolbarManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kodetron.dir\build.make CMakeFiles/Kodetron.dir/src/widgets/toolbar/ToolbarManager.cpp.s
+.PHONY : src/widgets/toolbar/ToolbarManager.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -300,6 +324,9 @@ help:
 	@echo ... src/widgets/menus/FileMenuActions.obj
 	@echo ... src/widgets/menus/FileMenuActions.i
 	@echo ... src/widgets/menus/FileMenuActions.s
+	@echo ... src/widgets/toolbar/ToolbarManager.obj
+	@echo ... src/widgets/toolbar/ToolbarManager.i
+	@echo ... src/widgets/toolbar/ToolbarManager.s
 .PHONY : help
 
 

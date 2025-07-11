@@ -21,6 +21,7 @@
 
 #include "CodeEditor.h"
 #include "FileMenuActions.h"
+#include "ToolbarManager.h"
 
 int main(int argc, char *argv[]) {
     // Creates application instance
@@ -67,79 +68,18 @@ int main(int argc, char *argv[]) {
 
     // Create a horizontal splitter to hold standard output and example output
     QSplitter *output_horizontal_splitter = new QSplitter(Qt::Horizontal);
-    output_horizontal_splitter->addWidget(output_editor);
-    output_horizontal_splitter->addWidget(output_examples_editor);
     output_horizontal_splitter->hide();
 
     // Set the editor_io_splitter as the main content of the central widget's layout
     main_layout->addWidget(editor_io_splitter);
 
-    // Creates the QDockWidget for the sidebar
-    QDockWidget *sidebar_dock_widget = new QDockWidget(&main_window);
-    sidebar_dock_widget->setAllowedAreas(Qt::LeftDockWidgetArea);
-    sidebar_dock_widget->setFeatures(QDockWidget::NoDockWidgetFeatures);
-
-    // Creates a widget to hold content for the dock widget
-    QWidget *sidebar_content_widget = new QWidget(sidebar_dock_widget);
-    QVBoxLayout *sidebar_layout = new QVBoxLayout(sidebar_content_widget);
-    sidebar_layout->setContentsMargins(0, 0, 0, 0);
-    sidebar_layout->setSpacing(0);
-
-    QToolButton *toggle_output_examples_button = new QToolButton(sidebar_content_widget);
-    QIcon documentIcon = main_window.style()->standardIcon(QStyle::SP_FileIcon);
-    toggle_output_examples_button->setIcon(documentIcon);
-    toggle_output_examples_button->setIconSize(QSize(32, 32));
-    toggle_output_examples_button->setToolTip("Toggle Output Examples Window");
-    toggle_output_examples_button->setToolButtonStyle(Qt::ToolButtonIconOnly);
-
-    bool examples_visible = false;
-
-    // Connect the button to toggle the visibility of the output examples
-    QObject::connect(toggle_output_examples_button, &QToolButton::clicked, [&]() {
-        // Save current sizes to restore later
-        QList<int> editor_io_sizes = editor_io_splitter->sizes();
-        QList<int> input_output_sizes = input_output_splitter->sizes();
-        
-        if (!examples_visible) {
-            output_editor->setParent(nullptr);
-            
-            while (output_horizontal_splitter->count() > 0) {
-                QWidget *w = output_horizontal_splitter->widget(0);
-                w->setParent(nullptr);
-            }
-            output_horizontal_splitter->addWidget(output_editor);
-            output_horizontal_splitter->addWidget(output_examples_editor);
-            
-            input_output_splitter->addWidget(output_horizontal_splitter);
-            output_horizontal_splitter->show();
-            
-            output_horizontal_splitter->setSizes(QList<int>({1, 1}));
-            
-            examples_visible = true;
-        } else {
-            output_horizontal_splitter->setParent(nullptr);
-            output_horizontal_splitter->hide();
-            
-            output_editor->setParent(nullptr);
-            
-            input_output_splitter->addWidget(output_editor);
-            
-            examples_visible = false;
-        }
-        
-        input_output_splitter->setSizes(input_output_sizes);
-        editor_io_splitter->setSizes(editor_io_sizes);
-    });
-
-    sidebar_layout->addWidget(toggle_output_examples_button);
-    sidebar_layout->addStretch(1);
-
-    sidebar_dock_widget->setWidget(sidebar_content_widget);
-
-    // Add the dock widget to the main window's left dock area
-    main_window.addDockWidget(Qt::LeftDockWidgetArea, sidebar_dock_widget);
-
-    sidebar_dock_widget->setFixedWidth(50);
+    // Create and setup the toolbar using the ToolbarManager
+    ToolbarManager *toolbar_manager = new ToolbarManager(&main_window, 
+                                                        output_editor, 
+                                                        output_examples_editor, 
+                                                        input_output_splitter, 
+                                                        output_horizontal_splitter, 
+                                                        editor_io_splitter);
 
     // Creates a menu bar for the main window
     QMenuBar *menu_bar = main_window.menuBar();
