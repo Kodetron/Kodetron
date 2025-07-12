@@ -5,12 +5,18 @@
 #include <QColor>
 #include <QApplication>
 #include <QPalette>
+#include <QFocusEvent>
+#include <QKeyEvent>
+#include <QTextStream>
 
-CodeEditor::CodeEditor(QWidget *parent) 
+CodeEditor::CodeEditor(QWidget *parent, EditorType type) 
     : QsciScintilla(parent)
     , m_lexer(nullptr)
     , m_placeholderLexer(nullptr)
     , m_placeholderMode(false)
+    , m_placeholderActive(false)
+    , m_editorType(type)
+    , m_lineNumberOffset(0)
 {
     setupModernTheme();
     setupSyntaxHighlighting();
@@ -19,6 +25,10 @@ CodeEditor::CodeEditor(QWidget *parent)
     setupAutoCompletion();
     setupIndentation();
     setupPlaceholderSystem();
+    
+    // Connect text changes to margin width updates
+    connect(this, &QsciScintilla::textChanged, this, &CodeEditor::updateMarginWidth);
+    connect(this, &QsciScintilla::linesChanged, this, &CodeEditor::updateMarginWidth);
 }
 
 // Compatibility methods for existing code
@@ -113,6 +123,7 @@ void CodeEditor::onCursorPositionChanged() {
 void CodeEditor::showPlaceholder() {
     if (!m_placeholderText.isEmpty() && text().isEmpty()) {
         m_placeholderMode = true;
+        m_placeholderActive = true;
         m_realText = text();
         
         // Temporarily disconnect textChanged to avoid triggering onTextChanged
@@ -130,6 +141,7 @@ void CodeEditor::showPlaceholder() {
 void CodeEditor::hidePlaceholder() {
     if (m_placeholderMode) {
         m_placeholderMode = false;
+        m_placeholderActive = false;
         
         // Temporarily disconnect textChanged
         disconnect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
@@ -147,6 +159,16 @@ void CodeEditor::hidePlaceholder() {
 
 bool CodeEditor::isPlaceholderVisible() const {
     return m_placeholderMode;
+}
+
+void CodeEditor::setLineNumberOffset(int offset) {
+    m_lineNumberOffset = offset;
+    // Force a redraw of the margin to show updated line numbers
+    setMarginWidth(0, marginWidth(0));
+}
+
+int CodeEditor::getLineNumberOffset() const {
+    return m_lineNumberOffset;
 }
 
 // Modern theme setup
@@ -215,12 +237,15 @@ void CodeEditor::setupEditorFeatures() {
     // Enable line numbers
     setMarginType(0, QsciScintilla::NumberMargin);
     setMarginLineNumbers(0, true);
-    setMarginWidth(0, "0000");
+    calculateAndSetMarginWidth(); // Use dynamic width calculation
     
-    // Enable folding
-    setFolding(QsciScintilla::BoxedTreeFoldStyle);
-    setMarginType(1, QsciScintilla::SymbolMargin);
-    setMarginWidth(1, "20");
+    // Only enable folding for main editor, not for input/output panels
+    if (m_editorType == MainEditor) {
+        setFolding(QsciScintilla::BoxedTreeFoldStyle);
+        setMarginType(1, QsciScintilla::SymbolMargin);
+        setMarginWidth(1, "20");
+        setMarginMarkerMask(1, 0xFFFFFF); // Show all folding markers
+    }
     
     // Set up brace matching
     setBraceMatching(QsciScintilla::SloppyBraceMatch);
@@ -231,22 +256,28 @@ void CodeEditor::setupEditorFeatures() {
     // Set tab width
     setTabWidth(4);
     setIndentationsUseTabs(false);
-    
 }
 
 void CodeEditor::setupMargins() {
     // Set up the line number margin
     setMarginType(0, QsciScintilla::NumberMargin);
     setMarginLineNumbers(0, true);
-    setMarginWidth(0, "0000");
+    calculateAndSetMarginWidth(); // Use dynamic width calculation
     
     // Remove any gaps by setting margin background to match editor
     setMarginsBackgroundColor(QColor("#1E1E1E"));
     
-    // Set up the folding margin
-    setMarginType(1, QsciScintilla::SymbolMargin);
-    setMarginWidth(1, "20");
-    setMarginSensitivity(1, true);
+    // Only set up folding margin for main editor
+    if (m_editorType == MainEditor) {
+        setMarginType(1, QsciScintilla::SymbolMargin);
+        setMarginWidth(1, "20");
+        setMarginSensitivity(1, true);
+        setMarginMarkerMask(1, 0xFFFFFF); // Show all folding markers
+    } else {
+        // For input/output editors, disable the folding margin to save space
+        setMarginType(1, QsciScintilla::SymbolMargin);
+        setMarginWidth(1, "0"); // Zero width to remove the gap
+    }
 }
 
 void CodeEditor::setupAutoCompletion() {
@@ -269,4 +300,71 @@ void CodeEditor::setupIndentation() {
     
     // Set up backspace unindents
     setBackspaceUnindents(true);
+}
+
+// Event overrides for improved placeholder behavior
+void CodeEditor::focusInEvent(QFocusEvent *event) {
+    QsciScintilla::focusInEvent(event);
+    
+    // Show placeholder if editor is empty and has placeholder text
+    if (text().isEmpty() && !m_placeholderText.isEmpty() && !m_placeholderActive) {
+        showPlaceholder();
+    }
+}
+
+void CodeEditor::focusOutEvent(QFocusEvent *event) {
+    QsciScintilla::focusOutEvent(event);
+    
+    // If placeholder is active and editor is empty, keep placeholder visible
+    if (m_placeholderActive && text().isEmpty()) {
+        // Don't hide placeholder on focus out if still empty
+        return;
+    }
+    
+    // Hide placeholder if it was active and now has content
+    if (m_placeholderActive && !text().isEmpty()) {
+        hidePlaceholder();
+    }
+}
+
+void CodeEditor::keyPressEvent(QKeyEvent *event) {
+    // Hide placeholder on any key press if it's active
+    if (m_placeholderActive) {
+        hidePlaceholder();
+    }
+    
+    QsciScintilla::keyPressEvent(event);
+}
+
+void CodeEditor::updateMarginWidth() {
+    calculateAndSetMarginWidth();
+}
+
+void CodeEditor::calculateAndSetMarginWidth() {
+    QString widthString = calculateMarginWidthString();
+    setMarginWidth(0, widthString);
+}
+
+QString CodeEditor::calculateMarginWidthString() const {
+    // Get the number of lines in the document
+    int lineCount = lines();
+    if (lineCount == 0) lineCount = 1;
+    
+    // Calculate the number of digits needed
+    int digits = 1;
+    int temp = lineCount;
+    while (temp /= 10) {
+        digits++;
+    }
+    
+    // Ensure minimum width for at least 3 digits
+    digits = qMax(digits, 3);
+    
+    // Create a string with the appropriate number of '0' characters
+    QString widthString;
+    for (int i = 0; i < digits; ++i) {
+        widthString += "0";
+    }
+    
+    return widthString;
 }
