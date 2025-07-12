@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find Qt modules
-find_package(Qt6 COMPONENTS Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Sql REQUIRED)
 
 # If using Qt6, set up the module paths
 if (TARGET Qt6::Widgets)
@@ -25,6 +25,7 @@ set(KODETRON_SOURCES
     src/widgets/LineNumberArea.cpp
     src/widgets/menus/FileMenuActions.cpp
     src/widgets/toolbar/ToolbarManager.cpp
+    src/database/DatabaseManager.cpp
 )
 
 # Define all header files for your project (optional, but good for clarity)
@@ -33,6 +34,7 @@ set(KODETRON_HEADERS
     src/widgets/LineNumberArea.h
     src/widgets/menus/FileMenuActions.h
     src/widgets/toolbar/ToolbarManager.h
+    src/database/DatabaseManager.h
 )
 
 # Add your executable, including all source files
@@ -44,12 +46,17 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/database
 )
 
 # Link Qt libraries
 if (TARGET Qt6::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Sql)
     # Qt6 also needs to set rpath for executables for deployment
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 endif()
+
+# Copy database schema to build directory
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/database/schema.sql 
+               ${CMAKE_CURRENT_BINARY_DIR}/database/schema.sql COPYONLY)

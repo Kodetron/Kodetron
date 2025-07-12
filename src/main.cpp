@@ -18,14 +18,69 @@
 #include <QSize>        // For specifying icon size
 #include <QStyle>       // For standard icons
 #include <QStyleOption> // For standard icons
+#include <QPalette>     // For application palette
+#include <QColor>       // For colors
 
 #include "CodeEditor.h"
 #include "FileMenuActions.h"
 #include "ToolbarManager.h"
+#include "database/DatabaseManager.h"
+
+void setupDarkTheme(QApplication &app) {
+    QPalette darkPalette;
+    
+    // Set dark colors for the palette
+    darkPalette.setColor(QPalette::Window, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::WindowText, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::Base, QColor(25, 25, 25));
+    darkPalette.setColor(QPalette::AlternateBase, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::ToolTipBase, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::ToolTipText, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::Text, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::Button, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::ButtonText, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::BrightText, QColor(255, 0, 0));
+    darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
+    darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+    darkPalette.setColor(QPalette::HighlightedText, QColor(255, 255, 255));
+    
+    // Set the application palette
+    app.setPalette(darkPalette);
+    
+    // Set the application style sheet for additional dark styling
+    app.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }");
+}
 
 int main(int argc, char *argv[]) {
     // Creates application instance
     QApplication application(argc, argv);
+    
+    // Apply dark theme to the entire application
+    setupDarkTheme(application);
+
+    // Initialize database
+    DatabaseManager *dbManager = new DatabaseManager(&application);
+    if (!dbManager->initialize("kodetron.db")) {
+        qDebug() << "Database initialization failed:" << dbManager->getLastError();
+        QMessageBox::warning(nullptr, "Database Error", 
+                           "Failed to initialize database: " + dbManager->getLastError());
+        // Continue without database for now
+    } else {
+        qDebug() << "Database initialized successfully!";
+        
+        // Create a default user if none exists
+        QList<QVariantMap> users = dbManager->getAllUsers();
+        if (users.isEmpty()) {
+            int userId = dbManager->createUser("default_user", "user@kodetron.com");
+            if (userId > 0) {
+                // Set default settings
+                dbManager->setSetting(userId, "theme", "dark");
+                dbManager->setSetting(userId, "font_size", "12");
+                dbManager->setSetting(userId, "auto_save", "true");
+                qDebug() << "Created default user with ID:" << userId;
+            }
+        }
+    }
 
     // Creates the main window for the application
     QMainWindow main_window;
@@ -40,20 +95,23 @@ int main(int argc, char *argv[]) {
     main_layout->setContentsMargins(0, 0, 0, 0);
 
     // Creates a text editor widget for coding
-    CodeEditor *text_editor = new CodeEditor(&main_window);
+    CodeEditor *text_editor = new CodeEditor(&main_window, CodeEditor::MainEditor);
 
     // Creates the text editor widget for standard input
-    CodeEditor *input_editor = new CodeEditor(&main_window);
+    CodeEditor *input_editor = new CodeEditor(&main_window, CodeEditor::InputOutput);
     input_editor->setPlaceholderText("Standard Input");
 
     // Creates the text editor widget for standard output
-    CodeEditor *output_editor = new CodeEditor(&main_window);
+    CodeEditor *output_editor = new CodeEditor(&main_window, CodeEditor::InputOutput);
     output_editor->setReadOnly(true);
     output_editor->setPlaceholderText("Standard Output");
 
     // Creates the text editor widget for standard output examples
-    CodeEditor *output_examples_editor = new CodeEditor(&main_window);
+    CodeEditor *output_examples_editor = new CodeEditor(&main_window, CodeEditor::InputOutput);
     output_examples_editor->setPlaceholderText("Output Examples");
+
+    // Set up line number synchronization
+    // The input/output panels will show line numbers that correspond to the main editor
 
     // Creates a horizontal splitter for the code editor and input/output sections
     QSplitter *editor_io_splitter = new QSplitter(Qt::Horizontal, central_widget);
@@ -65,6 +123,15 @@ int main(int argc, char *argv[]) {
     input_output_splitter->addWidget(output_editor);
 
     editor_io_splitter->addWidget(input_output_splitter);
+
+    // Set splitter stretch factors for optimal layout
+    // Main editor gets 70% width, right panel gets 30%
+    editor_io_splitter->setStretchFactor(0, 7); // Main editor
+    editor_io_splitter->setStretchFactor(1, 3); // Right panel
+    
+    // Within right panel: Input gets 40% height, Output gets 60%
+    input_output_splitter->setStretchFactor(0, 4); // Input editor
+    input_output_splitter->setStretchFactor(1, 6); // Output editor
 
     // Create a horizontal splitter to hold standard output and example output
     QSplitter *output_horizontal_splitter = new QSplitter(Qt::Horizontal);

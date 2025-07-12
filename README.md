@@ -1,7 +1,6 @@
 # Kodetron
 Kodetron IDE Repository
 
-<<<<<<< HEAD
 ### Group
 Natilla de la Abuela
 
@@ -16,6 +15,7 @@ Kodetron is a text editor specifically designed for C++ development within the c
 
 ### Objective
 The main goal of Kodetron is to provide programmers with a specialized tool that facilitates fast, precise, and collaborative code development tailored to the demands of competitive programming.
+
 =======
 <img src="assets/Logo.png" width="200">
 
@@ -34,6 +34,32 @@ Angel David Ruiz Barbosa - aruizba@unal.edu.co
 ## Description
 Kodetron is a text editor specifically designed for C++ development within the context of competitive programming.
 
+
+## Build and run
+
+Clone the repository:
+
+```bash
+git clone git@github.com:Kodetron/Kodetron.git
+```
+
+Enter and build the project:
+
+```bash
+cd Kodetron
+mkdir build && cd build
+cmake ..
+make
+```
+
+Finally run the project:
+
+```bash
+./Kodetron
+```
+
+
+
 ## Documentation
 
 If you want further documentation, please check out our [documentation repository](https://github.com/Kodetron/Documentation/tree/main), where all our development journey, requirements, use cases and planning is available.
@@ -49,5 +75,3 @@ If you want further documentation, please check out our [documentation repositor
 
 ### Objective
 The main goal of Kodetron is to provide programmers with a specialized tool that facilitates fast, precise, and collaborative code development tailored to the demands of competitive programming.
-
->>>>>>> upstream/main
