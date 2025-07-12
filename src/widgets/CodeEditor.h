@@ -1,37 +1,33 @@
 #ifndef CODEEDITOR_H
 #define CODEEDITOR_H
 
-#include <QPlainTextEdit>
-#include <QObject> // Required for Q_OBJECT macro
+#include <Qsci/qsciscintilla.h>
+#include <Qsci/qscilexercpp.h>
+#include <QObject>
 
-class LineNumberArea;
-
-class CodeEditor : public QPlainTextEdit {
-    Q_OBJECT // This macro is necessary for Qt's meta-object system (signals and slots)
+class CodeEditor : public QsciScintilla {
+    Q_OBJECT
 
 public:
     CodeEditor(QWidget *parent = nullptr);
-
-    // Calculates the width needed for the line number area
-    int lineNumberAreaWidth();
-
-    // Updates the viewport margins to accommodate the line number area
-    void updateLineNumberAreaWidth(int newBlockCount);
-
-    // Updates the line number area's geometry and content
-    void updateLineNumberArea(const QRect &rect, int dy);
-
-    // Paints the line numbers in the LineNumberArea
-    void lineNumberAreaPaintEvent(QPaintEvent *event);
-
-protected:
-    // Override resizeEvent to adjust line number area geometry
-    void resizeEvent(QResizeEvent *event) override;
+    
+    // Compatibility methods for existing code
+    void setPlainText(const QString &text);
+    QString toPlainText() const;
+    void setPlaceholderText(const QString &text);
+    void setReadOnly(bool readOnly);
+    void clear();
 
 private:
-
-    LineNumberArea *lineNumberArea;
-    friend class LineNumberArea;
+    void setupModernTheme();
+    void setupSyntaxHighlighting();
+    void setupEditorFeatures();
+    void setupMargins();
+    void setupAutoCompletion();
+    void setupIndentation();
+    
+    QsciLexerCPP *m_lexer;
+    QString m_placeholderText;
 };
 
 #endif
