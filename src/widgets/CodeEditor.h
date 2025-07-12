@@ -3,6 +3,8 @@
 
 #include <QPlainTextEdit>
 #include <QObject> // Required for Q_OBJECT macro
+#include <QFocusEvent>
+#include <QKeyEvent>
 
 class LineNumberArea;
 
@@ -10,7 +12,12 @@ class CodeEditor : public QPlainTextEdit {
     Q_OBJECT // This macro is necessary for Qt's meta-object system (signals and slots)
 
 public:
-    CodeEditor(QWidget *parent = nullptr);
+    enum EditorType {
+        MainEditor,     // Full featured editor
+        InputOutput     // Simple editor for input/output
+    };
+    
+    CodeEditor(QWidget *parent = nullptr, EditorType type = MainEditor);
 
     // Calculates the width needed for the line number area
     int lineNumberAreaWidth();
@@ -23,14 +30,28 @@ public:
 
     // Paints the line numbers in the LineNumberArea
     void lineNumberAreaPaintEvent(QPaintEvent *event);
+    
+    // Placeholder text support
+    void setPlaceholderText(const QString &text);
+    QString placeholderText() const;
 
 protected:
     // Override resizeEvent to adjust line number area geometry
     void resizeEvent(QResizeEvent *event) override;
+    void focusInEvent(QFocusEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
+    void setupDarkTheme();
+    void showPlaceholder();
+    void hidePlaceholder();
+    bool isPlaceholderVisible() const;
 
     LineNumberArea *lineNumberArea;
+    EditorType m_editorType;
+    QString m_placeholderText;
+    bool m_placeholderVisible;
     friend class LineNumberArea;
 };
 

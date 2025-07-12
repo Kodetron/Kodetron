@@ -5,8 +5,16 @@
 #include <QTextBlock>
 #include <QAbstractTextDocumentLayout>
 #include <QColor>
+#include <QFocusEvent>
+#include <QKeyEvent>
+#include <QFont>
+#include <QFontMetrics>
 
-CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent) {
+CodeEditor::CodeEditor(QWidget *parent, EditorType type) 
+    : QPlainTextEdit(parent)
+    , m_editorType(type)
+    , m_placeholderVisible(false)
+{
     lineNumberArea = new LineNumberArea(this);
 
     // Connect signals from CodeEditor to slots in CodeEditor to manage line number area
@@ -14,6 +22,9 @@ CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent) {
     connect(this, &CodeEditor::updateRequest, this, &CodeEditor::updateLineNumberArea);
 
     updateLineNumberAreaWidth(0);
+    
+    // Setup dark theme
+    setupDarkTheme();
 }
 
 int CodeEditor::lineNumberAreaWidth() {
@@ -52,13 +63,10 @@ void CodeEditor::resizeEvent(QResizeEvent *event) {
 
 void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event) {
     QPainter painter(lineNumberArea);
+    
+    // Fill background to match editor background (eliminates gap)
     QColor editorBackgroundColor = palette().color(QPalette::Base);
     painter.fillRect(event->rect(), editorBackgroundColor);
-
-    // painter.setPen(QColor(Qt::lightGray)); // A subtle gray for the line
-    // painter.drawLine(lineNumberArea->width() - 1, event->rect().top(),
-    //                  lineNumberArea->width() - 1, event->rect().bottom());
-
 
     QTextBlock block = firstVisibleBlock();
     int blockNumber = block.blockNumber();
@@ -69,7 +77,8 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event) {
     while (block.isValid() && top <= event->rect().bottom()) {
         if (block.isVisible() && bottom >= event->rect().top()) {
             QString number = QString::number(blockNumber + 1);
-            painter.setPen(Qt::gray);
+            // Use consistent color for line numbers (dark theme)
+            painter.setPen(QColor("#858585")); // Gray color for line numbers
             painter.drawText(0, top, lineNumberArea->width()-2, fontMetrics().height(),
                              Qt::AlignRight, number);
         }
@@ -78,4 +87,89 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event) {
         bottom = top + (int) blockBoundingRect(block).height();
         ++blockNumber;
     }
+}
+
+void CodeEditor::setPlaceholderText(const QString &text) {
+    m_placeholderText = text;
+    if (toPlainText().isEmpty() && !m_placeholderText.isEmpty()) {
+        showPlaceholder();
+    }
+}
+
+QString CodeEditor::placeholderText() const {
+    return m_placeholderText;
+}
+
+void CodeEditor::focusInEvent(QFocusEvent *event) {
+    QPlainTextEdit::focusInEvent(event);
+    
+    // Show placeholder if editor is empty and has placeholder text
+    if (toPlainText().isEmpty() && !m_placeholderText.isEmpty() && !m_placeholderVisible) {
+        showPlaceholder();
+    }
+}
+
+void CodeEditor::focusOutEvent(QFocusEvent *event) {
+    QPlainTextEdit::focusOutEvent(event);
+    
+    // If placeholder is visible and editor is empty, keep placeholder visible
+    if (m_placeholderVisible && toPlainText().isEmpty()) {
+        // Don't hide placeholder on focus out if still empty
+        return;
+    }
+    
+    // Hide placeholder if it was visible and now has content
+    if (m_placeholderVisible && !toPlainText().isEmpty()) {
+        hidePlaceholder();
+    }
+}
+
+void CodeEditor::paintEvent(QPaintEvent *event) {
+    QPlainTextEdit::paintEvent(event);
+    
+    // Draw placeholder text if needed
+    if (m_placeholderVisible && toPlainText().isEmpty()) {
+        QPainter painter(viewport());
+        painter.setPen(QColor(180, 180, 180, 120)); // Semi-transparent gray
+        
+        QFont font = this->font();
+        painter.setFont(font);
+        
+        QRect rect = viewport()->rect();
+        rect.setLeft(rect.left() + 4); // Small margin
+        
+        painter.drawText(rect, Qt::AlignTop | Qt::AlignLeft, m_placeholderText);
+    }
+}
+
+void CodeEditor::setupDarkTheme() {
+    // Set up a modern monospace font
+    QFont font("JetBrains Mono", 12);
+    font.setFixedPitch(true);
+    setFont(font);
+    
+    // Modern dark theme colors (inspired by VS Code Dark+)
+    QPalette palette = this->palette();
+    palette.setColor(QPalette::Base, QColor("#1E1E1E")); // Background
+    palette.setColor(QPalette::Text, QColor("#D4D4D4")); // Text color
+    palette.setColor(QPalette::Window, QColor("#1E1E1E")); // Window background
+    setPalette(palette);
+}
+
+void CodeEditor::showPlaceholder() {
+    if (!m_placeholderText.isEmpty() && toPlainText().isEmpty()) {
+        m_placeholderVisible = true;
+        viewport()->update(); // Trigger repaint to show placeholder
+    }
+}
+
+void CodeEditor::hidePlaceholder() {
+    if (m_placeholderVisible) {
+        m_placeholderVisible = false;
+        viewport()->update(); // Trigger repaint to hide placeholder
+    }
+}
+
+bool CodeEditor::isPlaceholderVisible() const {
+    return m_placeholderVisible;
 }
