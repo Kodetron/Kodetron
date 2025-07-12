@@ -9,6 +9,8 @@
 CodeEditor::CodeEditor(QWidget *parent) 
     : QsciScintilla(parent)
     , m_lexer(nullptr)
+    , m_placeholderLexer(nullptr)
+    , m_placeholderMode(false)
 {
     setupModernTheme();
     setupSyntaxHighlighting();
@@ -16,22 +18,31 @@ CodeEditor::CodeEditor(QWidget *parent)
     setupMargins();
     setupAutoCompletion();
     setupIndentation();
+    setupPlaceholderSystem();
 }
 
 // Compatibility methods for existing code
 void CodeEditor::setPlainText(const QString &text) {
-    setText(text);
+    if (text.isEmpty() && !m_placeholderText.isEmpty()) {
+        showPlaceholder();
+    } else {
+        hidePlaceholder();
+        setText(text);
+        m_realText = text;
+    }
 }
 
 QString CodeEditor::toPlainText() const {
+    if (m_placeholderMode) {
+        return QString();
+    }
     return text();
 }
 
 void CodeEditor::setPlaceholderText(const QString &text) {
     m_placeholderText = text;
-    // QScintilla doesn't have built-in placeholders, so we'll implement a simple version
-    if (text().isEmpty() && !m_placeholderText.isEmpty()) {
-        setText(m_placeholderText);
+    if (this->text().isEmpty() && !m_placeholderText.isEmpty()) {
+        showPlaceholder();
     }
 }
 
@@ -40,7 +51,94 @@ void CodeEditor::setReadOnly(bool readOnly) {
 }
 
 void CodeEditor::clear() {
+    hidePlaceholder();
     setText("");
+    m_realText = "";
+}
+
+void CodeEditor::setupPlaceholderSystem() {
+    // Create a special lexer for placeholder text
+    m_placeholderLexer = new QsciLexerCPP(this);
+    
+    // Set the placeholder lexer's background color to match the editor
+    m_placeholderLexer->setPaper(QColor("#1E1E1E"));
+    m_placeholderLexer->setDefaultPaper(QColor("#1E1E1E"));
+    
+    // Configure placeholder lexer with translucent colors (gray with transparency)
+    QColor placeholderColor(180, 180, 180);
+    placeholderColor.setAlpha(120); // Semi-transparent
+    
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::Default);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::Comment);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::CommentLine);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::CommentDoc);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::Number);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::DoubleQuotedString);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::SingleQuotedString);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::Operator);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::Identifier);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::Keyword);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::KeywordSet2);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::PreProcessor);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::GlobalClass);
+    m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::CommentLineDoc);
+    
+    // Connect signals for text changes
+    connect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
+    connect(this, &QsciScintilla::modificationAttempted, this, &CodeEditor::onModificationAttempted);
+}
+
+void CodeEditor::onTextChanged() {
+    if (m_placeholderMode) {
+        // User started typing, hide placeholder
+        hidePlaceholder();
+    }
+}
+
+void CodeEditor::onModificationAttempted() {
+    if (m_placeholderMode) {
+        // User tried to modify placeholder text, hide it
+        hidePlaceholder();
+    }
+}
+
+void CodeEditor::showPlaceholder() {
+    if (!m_placeholderText.isEmpty() && text().isEmpty()) {
+        m_placeholderMode = true;
+        m_realText = text();
+        
+        // Temporarily disconnect textChanged to avoid triggering onTextChanged
+        disconnect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
+        
+        // Set placeholder lexer and text
+        setLexer(m_placeholderLexer);
+        setText(m_placeholderText);
+        
+        // Reconnect the signal
+        connect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
+    }
+}
+
+void CodeEditor::hidePlaceholder() {
+    if (m_placeholderMode) {
+        m_placeholderMode = false;
+        
+        // Temporarily disconnect textChanged
+        disconnect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
+        
+        // Restore normal lexer
+        setLexer(m_lexer);
+        
+        // Clear the text and restore real text if any
+        setText(m_realText);
+        
+        // Reconnect the signal
+        connect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
+    }
+}
+
+bool CodeEditor::isPlaceholderVisible() const {
+    return m_placeholderMode;
 }
 
 // Modern theme setup
@@ -75,6 +173,10 @@ void CodeEditor::setupModernTheme() {
 void CodeEditor::setupSyntaxHighlighting() {
     m_lexer = new QsciLexerCPP(this);
     
+    // Set the lexer's background color to match the editor
+    m_lexer->setPaper(QColor("#1E1E1E"));
+    m_lexer->setDefaultPaper(QColor("#1E1E1E"));
+    
     // Configure the lexer with modern colors (VS Code Dark+ inspired)
     m_lexer->setColor(QColor("#D4D4D4"), QsciLexerCPP::Default);           // Default text
     m_lexer->setColor(QColor("#6A9955"), QsciLexerCPP::Comment);           // Comments
@@ -95,6 +197,7 @@ void CodeEditor::setupSyntaxHighlighting() {
     
     // Set the lexer
     setLexer(m_lexer);
+    // (No need to call colorize/colourise)
 }
 
 void CodeEditor::setupEditorFeatures() {
@@ -118,8 +221,6 @@ void CodeEditor::setupEditorFeatures() {
     setTabWidth(4);
     setIndentationsUseTabs(false);
     
-    // Enable undo/redo
-    setUndoRedoEnabled(true);
 }
 
 void CodeEditor::setupMargins() {

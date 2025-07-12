@@ -18,6 +18,10 @@ public:
     void setReadOnly(bool readOnly);
     void clear();
 
+private slots:
+    void onTextChanged();
+    void onModificationAttempted();
+
 private:
     void setupModernTheme();
     void setupSyntaxHighlighting();
@@ -25,9 +29,16 @@ private:
     void setupMargins();
     void setupAutoCompletion();
     void setupIndentation();
+    void setupPlaceholderSystem();
+    void showPlaceholder();
+    void hidePlaceholder();
+    bool isPlaceholderVisible() const;
     
     QsciLexerCPP *m_lexer;
+    QsciLexerCPP *m_placeholderLexer;
     QString m_placeholderText;
+    QString m_realText;
+    bool m_placeholderMode;
 };
 
 #endif
