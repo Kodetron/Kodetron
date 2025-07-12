@@ -1,6 +1,6 @@
 #include "ToolbarManager.h"
 
-const QString ToolbarManager::TOGGLE_ICON_PATH = "C:/Users/aleja/OneDrive/Documentos/UNAL/2025_S1/INGESOFT_I/Kodetron/icons/comparison.png";
+const QString ToolbarManager::TOGGLE_ICON_PATH = "icons/comparison.png";
 
 ToolbarManager::ToolbarManager(QMainWindow *parent,
                                QWidget *outputContainer,

@@ -1,55 +1,77 @@
-# Minimum version of CMake required
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
+project(Kodetron LANGUAGES CXX)
 
-# Project name
-project(Kodetron VERSION 0.1.0)
-
-# Enable C++17 standard or higher
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find Qt modules
 find_package(Qt6 COMPONENTS Widgets REQUIRED)
+qt_standard_project_setup()   # sets up MOC/UIC etc.
 
-# If using Qt6, set up the module paths
-if (TARGET Qt6::Widgets)
-    qt_standard_project_setup() # Sets up includes, defines for Qt6
-    # Optional: Enable C++ standard if not already done by qt_standard_project_setup()
-    # target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+# 1) First, try the shipped CMake config
+find_package(QScintilla2Qt6 QUIET)
+
+# 2) If that failed, try pkg-config (Ubuntu/Debian, Fedora, etc.)
+if (NOT QScintilla2Qt6_FOUND)
+  find_package(PkgConfig QUIET)
+  if (PkgConfig_FOUND)
+    pkg_check_modules(QSCI_PKG QUIET IMPORTED_TARGET qscintilla2-qt6)
+    if (QSCI_PKG_FOUND)
+      # alias the pkg-config target to the same name
+      add_library(QScintilla2Qt6::QScintilla2Qt6 ALIAS PkgConfig::qscintilla2-qt6)
+      set(QScintilla2Qt6_FOUND TRUE)
+    endif()
+  endif()
 endif()
 
-# Define all source files for your project
-set(KODETRON_SOURCES
-    src/main.cpp
-    src/widgets/CodeEditor.cpp
-    src/widgets/LineNumberArea.cpp
-    src/widgets/menus/FileMenuActions.cpp
-    src/widgets/toolbar/ToolbarManager.cpp
+# 3) If still not found, do our Arch-style manual probe
+if (NOT QScintilla2Qt6_FOUND)
+  find_path(QSCI_INCLUDE_DIR
+    NAMES Qsci/qsciscintilla.h
+    HINTS /usr/include/qt6 /usr/include
+  )
+  find_library(QSCI_LIBRARY
+    NAMES qscintilla2_qt6
+    HINTS /usr/lib /usr/local/lib
+  )
+  if (QSCI_INCLUDE_DIR AND QSCI_LIBRARY)
+    add_library(QScintilla2Qt6::QScintilla2Qt6 UNKNOWN IMPORTED)
+    set_target_properties(QScintilla2Qt6::QScintilla2Qt6 PROPERTIES
+      IMPORTED_LOCATION            "${QSCI_LIBRARY}"
+      INTERFACE_INCLUDE_DIRECTORIES "${QSCI_INCLUDE_DIR}"
+    )
+    set(QScintilla2Qt6_FOUND TRUE)
+  endif()
+endif()
+
+# 4) Fatal error if we still didn’t find it
+if (NOT QScintilla2Qt6_FOUND)
+  message(FATAL_ERROR
+    "QScintilla2Qt6 not found!\n"
+    "  • On Ubuntu/Debian: sudo apt install qscintilla2-qt6-dev\n"
+    "  • On Fedora:        sudo dnf install qscintilla-qt6-devel\n"
+    "  • On Arch/Manjaro:  sudo pacman -S qscintilla-qt6\n"
+    "  • On Windows:       install QScintilla for Qt6 via the Qt Online Installer\n"
+    "  • On macOS:         brew install qscintilla2-qt6\n"
+  )
+endif()
+
+
+# Collect sources/headers
+file(GLOB_RECURSE KODETRON_SOURCES src/*.cpp)
+file(GLOB_RECURSE KODETRON_HEADERS src/*.h)
+
+add_executable(${PROJECT_NAME}
+    ${KODETRON_SOURCES}
+    ${KODETRON_HEADERS}
 )
 
-# Define all header files for your project (optional, but good for clarity)
-set(KODETRON_HEADERS
-    src/widgets/CodeEditor.h
-    src/widgets/LineNumberArea.h
-    src/widgets/menus/FileMenuActions.h
-    src/widgets/toolbar/ToolbarManager.h
-)
-
-# Add your executable, including all source files
-add_executable(${PROJECT_NAME} ${KODETRON_SOURCES} ${KODETRON_HEADERS}) # Include headers for MOC processing
-
-# Add the directory containing your custom headers to the include paths
-# This tells the compiler to look in 'Kodetron/src/widgets' for headers like "CodeEditor.h"
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
 )
 
-# Link Qt libraries
-if (TARGET Qt6::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
-    # Qt6 also needs to set rpath for executables for deployment
-    # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
-    # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-endif()
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Widgets
+    QScintilla2Qt6::QScintilla2Qt6
+)
