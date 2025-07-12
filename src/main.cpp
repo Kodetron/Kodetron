@@ -18,14 +18,44 @@
 #include <QSize>        // For specifying icon size
 #include <QStyle>       // For standard icons
 #include <QStyleOption> // For standard icons
+#include <QPalette>     // For application palette
+#include <QColor>       // For colors
 
 #include "CodeEditor.h"
 #include "FileMenuActions.h"
 #include "ToolbarManager.h"
 
+void setupDarkTheme(QApplication &app) {
+    QPalette darkPalette;
+    
+    // Set dark colors for the palette
+    darkPalette.setColor(QPalette::Window, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::WindowText, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::Base, QColor(25, 25, 25));
+    darkPalette.setColor(QPalette::AlternateBase, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::ToolTipBase, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::ToolTipText, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::Text, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::Button, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::ButtonText, QColor(255, 255, 255));
+    darkPalette.setColor(QPalette::BrightText, QColor(255, 0, 0));
+    darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
+    darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+    darkPalette.setColor(QPalette::HighlightedText, QColor(255, 255, 255));
+    
+    // Set the application palette
+    app.setPalette(darkPalette);
+    
+    // Set the application style sheet for additional dark styling
+    app.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }");
+}
+
 int main(int argc, char *argv[]) {
     // Creates application instance
     QApplication application(argc, argv);
+    
+    // Apply dark theme to the entire application
+    setupDarkTheme(application);
 
     // Creates the main window for the application
     QMainWindow main_window;

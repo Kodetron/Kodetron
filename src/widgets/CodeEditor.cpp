@@ -83,9 +83,10 @@ void CodeEditor::setupPlaceholderSystem() {
     m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::GlobalClass);
     m_placeholderLexer->setColor(placeholderColor, QsciLexerCPP::CommentLineDoc);
     
-    // Connect signals for text changes
+    // Connect signals for text changes - use a more reliable approach
     connect(this, &QsciScintilla::textChanged, this, &CodeEditor::onTextChanged);
     connect(this, &QsciScintilla::modificationAttempted, this, &CodeEditor::onModificationAttempted);
+    connect(this, &QsciScintilla::cursorPositionChanged, this, &CodeEditor::onCursorPositionChanged);
 }
 
 void CodeEditor::onTextChanged() {
@@ -98,6 +99,13 @@ void CodeEditor::onTextChanged() {
 void CodeEditor::onModificationAttempted() {
     if (m_placeholderMode) {
         // User tried to modify placeholder text, hide it
+        hidePlaceholder();
+    }
+}
+
+void CodeEditor::onCursorPositionChanged() {
+    if (m_placeholderMode) {
+        // User moved cursor, hide placeholder
         hidePlaceholder();
     }
 }
@@ -160,8 +168,11 @@ void CodeEditor::setupModernTheme() {
     setCaretLineBackgroundColor(QColor("#2A2D2E"));
     setCaretLineVisible(true);
     
+    // Cursor color - make it white so it's visible on dark background
+    setCaretForegroundColor(QColor("#FFFFFF"));
+    
     // Margin colors
-    setMarginsBackgroundColor(QColor("#252526"));
+    setMarginsBackgroundColor(QColor("#1E1E1E")); // Match editor background
     setMarginsForegroundColor(QColor("#858585"));
     
     // Edge line (column guide)
@@ -228,6 +239,9 @@ void CodeEditor::setupMargins() {
     setMarginType(0, QsciScintilla::NumberMargin);
     setMarginLineNumbers(0, true);
     setMarginWidth(0, "0000");
+    
+    // Remove any gaps by setting margin background to match editor
+    setMarginsBackgroundColor(QColor("#1E1E1E"));
     
     // Set up the folding margin
     setMarginType(1, QsciScintilla::SymbolMargin);

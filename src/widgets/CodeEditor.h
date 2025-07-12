@@ -21,6 +21,7 @@ public:
 private slots:
     void onTextChanged();
     void onModificationAttempted();
+    void onCursorPositionChanged();
 
 private:
     void setupModernTheme();
