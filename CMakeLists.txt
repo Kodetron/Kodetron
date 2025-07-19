@@ -68,3 +68,26 @@ find_program(CLANG_FORMAT_EXE NAMES "clang-format")
 if(CLANG_FORMAT_EXE)
     message(STATUS "Found clang-format: ${CLANG_FORMAT_EXE}")
 endif()
+
+
+# GoogleTest Integration
+# Only add if testing is enabled
+enable_testing()
+
+# Disable Google Mock if not needed
+set(gmock_build_tests OFF CACHE BOOL "Disable gmock tests" FORCE)
+set(BUILD_GMOCK OFF CACHE BOOL "Disable gmock build" FORCE)
+
+add_subdirectory(external/googletest)
+
+# Disable clang-tidy for GTest and GMock
+set_target_properties(gtest PROPERTIES CXX_CLANG_TIDY "")
+set_target_properties(gtest_main PROPERTIES CXX_CLANG_TIDY "")
+if (TARGET gmock)
+    set_target_properties(gmock PROPERTIES CXX_CLANG_TIDY "")
+endif()
+
+if (TARGET gmock_main)
+    set_target_properties(gmock_main PROPERTIES CXX_CLANG_TIDY "")
+endif()
+add_subdirectory(tests)

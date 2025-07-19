@@ -1,23 +1,23 @@
-#include <QApplication> // Core application class
-#include <QMainWindow>  // Main window class
-#include <QTextEdit>    // Text editing widget
-#include <QMenuBar>     // Menu bar
-#include <QMenu>        // Menus
 #include <QAction>      // Actions for menus/toolbars
-#include <QFileDialog>  // For opening/saving files
-#include <QFile>        // For file I/O
-#include <QTextStream>  // For reading/writing textgit 
-#include <QMessageBox>  // For displaying messages
-#include <QSplitter>    // For creating resizable sections
-#include <QVBoxLayout>  // For vertical layout
-#include <QFileInfo>    // For QFileInfo::fileName()
-#include <QLabel>       // For a placeholder label in the sidebar
+#include <QApplication> // Core application class
 #include <QDockWidget>  // Include for QDockWidget
-#include <QToolButton>  // For icon-only buttons in the dock widget
+#include <QFile>        // For file I/O
+#include <QFileDialog>  // For opening/saving files
+#include <QFileInfo>    // For QFileInfo::fileName()
 #include <QIcon>        // For setting icons on QToolButton
+#include <QLabel>       // For a placeholder label in the sidebar
+#include <QMainWindow>  // Main window class
+#include <QMenu>        // Menus
+#include <QMenuBar>     // Menu bar
+#include <QMessageBox>  // For displaying messages
 #include <QSize>        // For specifying icon size
+#include <QSplitter>    // For creating resizable sections
 #include <QStyle>       // For standard icons
 #include <QStyleOption> // For standard icons
+#include <QTextEdit>    // Text editing widget
+#include <QTextStream>  // For reading/writing textgit
+#include <QToolButton>  // For icon-only buttons in the dock widget
+#include <QVBoxLayout>  // For vertical layout
 
 #include "CodeEditor.h"
 #include "FileMenuActions.h"
@@ -74,12 +74,7 @@ int main(int argc, char *argv[]) {
     main_layout->addWidget(editor_io_splitter);
 
     // Create and setup the toolbar using the ToolbarManager
-    ToolbarManager *toolbar_manager = new ToolbarManager(&main_window, 
-                                                        output_editor, 
-                                                        output_examples_editor, 
-                                                        input_output_splitter, 
-                                                        output_horizontal_splitter, 
-                                                        editor_io_splitter);
+    ToolbarManager *toolbar_manager = new ToolbarManager(&main_window, output_editor, output_examples_editor, input_output_splitter, output_horizontal_splitter, editor_io_splitter);
 
     // Creates a menu bar for the main window
     QMenuBar *menu_bar = main_window.menuBar();
