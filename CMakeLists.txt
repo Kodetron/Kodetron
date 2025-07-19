@@ -53,3 +53,18 @@ if (TARGET Qt6::Widgets)
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 endif()
+
+# Clang-tidy configuration
+find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
+
+if(CLANG_TIDY_EXE)
+    message(STATUS "Found clang-tidy: ${CLANG_TIDY_EXE}")
+    set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_EXE};--extra-arg=-std=c++20")
+endif()
+
+# Clang-format configuration
+find_program(CLANG_FORMAT_EXE NAMES "clang-format")
+
+if(CLANG_FORMAT_EXE)
+    message(STATUS "Found clang-format: ${CLANG_FORMAT_EXE}")
+endif()
