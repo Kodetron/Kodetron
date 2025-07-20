@@ -9,7 +9,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find Qt modules
-find_package(Qt6 COMPONENTS Widgets Sql REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Sql Network REQUIRED)
+
+# Try to find Crow (optional for backend server)
+find_package(Crow QUIET)
 
 # If using Qt6, set up the module paths
 if (TARGET Qt6::Widgets)
@@ -55,7 +58,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 # Link Qt libraries
 if (TARGET Qt6::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Sql)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Sql Qt6::Network)
     # Qt6 also needs to set rpath for executables for deployment
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
@@ -98,3 +101,11 @@ if (TARGET gmock_main)
     set_target_properties(gmock_main PROPERTIES CXX_CLANG_TIDY "")
 endif()
 add_subdirectory(tests)
+
+# Optional: Build backend server if Crow is available
+if(Crow_FOUND)
+    message(STATUS "Crow found - building backend server")
+    add_subdirectory(backend)
+else()
+    message(STATUS "Crow not found - skipping backend server build")
+endif()
