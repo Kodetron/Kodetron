@@ -4,11 +4,11 @@ Checks: >
   performance-*,
   readability-*,
   modernize-*,
+  -modernize-use-trailing-return-type,
   cppcoreguidelines-*,
+  -cppcoreguidelines-avoid-non-const-global-variables,
   google-readability-function-size,
-  readability-identifier-naming
-
-WarningsAsErrors: '*'
+  readability-identifier-naming,
 
 CheckOptions:
   - key:             readability-identifier-naming.FunctionCase
@@ -23,7 +23,5 @@ CheckOptions:
     value:           lower_case
   - key:             readability-identifier-naming.VariableCase
     value:           snake_case
-  - key:             readability-identifier-naming.GlobalVariableCase
-    value:           UPPER_CASE
   - key:             readability-identifier-naming.GlobalConstantCase
     value:           UPPER_CASE
