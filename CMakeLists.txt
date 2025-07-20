@@ -18,21 +18,24 @@ if (TARGET Qt6::Widgets)
     # target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 endif()
 
-# Define all source files for your project
-set(KODETRON_SOURCES
-    src/main.cpp
-    src/widgets/CodeEditor.cpp
-    src/widgets/LineNumberArea.cpp
-    src/widgets/menus/FileMenuActions.cpp
-    src/widgets/toolbar/ToolbarManager.cpp
+# Include all source files and headers from the src directory and its subdirectories
+file(GLOB KODETRON_SOURCES
+    *.cpp
+    src/*.cpp
+    src/*/*.cpp
+    src/*/*/*.cpp
+    src/*/*/*/*.cpp
+    src/*/*/*/*/*.cpp
+    src/*/*/*/*/*/*/*.cpp
 )
-
-# Define all header files for your project (optional, but good for clarity)
-set(KODETRON_HEADERS
-    src/widgets/CodeEditor.h
-    src/widgets/LineNumberArea.h
-    src/widgets/menus/FileMenuActions.h
-    src/widgets/toolbar/ToolbarManager.h
+file(GLOB KODETRON_HEADERS
+    *.h
+    src/*.h
+    src/*/*.h
+    src/*/*/*.h
+    src/*/*/*/*.h
+    src/*/*/*/*/*.h
+    src/*/*/*/*/*/*/*.h
 )
 
 # Add your executable, including all source files
