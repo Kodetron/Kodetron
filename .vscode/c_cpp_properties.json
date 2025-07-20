@@ -3,22 +3,12 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/src/**",
-                "${workspaceFolder}/src/DataBase",
-                "C:/Qt/*/mingw*/include/**",
-                "C:/Qt/*/mingw*/include/QtCore/**",
-                "C:/Qt/*/mingw*/include/QtWidgets/**",
-                "C:/Qt/*/mingw*/include/QtSql/**",
-                "C:/msys64/ucrt64/include/**"
+                "${workspaceFolder}/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE",
-                "QT_WIDGETS_LIB",
-                "QT_SQL_LIB",
-                "QT_CORE_LIB"
+                "_UNICODE"
             ],
             "compilerPath": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
             "intelliSenseMode": "gcc-x64",
