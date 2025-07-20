@@ -1,0 +1,4 @@
+#menu_section {
+  background-color: #000000;
+  max-height: 40px;
+}

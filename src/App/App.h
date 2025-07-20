@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QFile>
 #include <QDir>
+#include "../widgets/Menu/MenuSection/MenuSection.h"
 
 class App : public QWidget {
     Q_OBJECT
@@ -13,9 +14,10 @@ class App : public QWidget {
   public:
     App(QWidget *parent = nullptr);
     void loadStyleSheet();
-
+    void applyQtStyles();
+    
   private:
-    QWidget *menu_section;
+    MenuSection *menu_section;
     QWidget *toolbar_section;
     QWidget *explorer_section;
     QWidget *editor_section;

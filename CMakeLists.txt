@@ -44,8 +44,11 @@ add_executable(${PROJECT_NAME} ${KODETRON_SOURCES} ${KODETRON_HEADERS}) # Includ
 # Add the directory containing your custom headers to the include paths
 # This tells the compiler to look in 'Kodetron/src/widgets' for headers like "CodeEditor.h"
 target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utils
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menu_section
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
 )
 
