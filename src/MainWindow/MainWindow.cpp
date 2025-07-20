@@ -5,6 +5,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("Kodetron");
     setMinimumSize(500, 350);
+    setWindowIcon(QIcon("../assets/Logo.png"));
 
     setObjectName("main_window");
 
