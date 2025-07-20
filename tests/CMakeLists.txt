@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Find Qt6 for tests
-find_package(Qt6 COMPONENTS Widgets Test Sql REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Test REQUIRED)
 
 # Create test executable
 add_executable(kodetron_tests
@@ -10,17 +10,10 @@ add_executable(kodetron_tests
     test_FileSaveAction.cpp
     test_FileSaveAsAction.cpp
     test_FileExitAction.cpp
-    test_Database.cpp
     # Add the source files that need to be tested
     ../src/widgets/menus/FileMenuActions.cpp
     ../src/widgets/CodeEditor.cpp
     ../src/widgets/LineNumberArea.cpp
-    # Database source files
-    ../src/DataBase/DatabaseManager.cpp
-    ../src/DataBase/Models.cpp
-    ../src/DataBase/UserRepository.cpp
-    ../src/DataBase/ThemeRepository.cpp
-    ../src/DataBase/DatabaseService.cpp
 )
 
 # Add include directories for the test executable
@@ -28,8 +21,6 @@ target_include_directories(kodetron_tests PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/menus
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/toolbar
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/DataBase
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src
 )
 
 # Link libraries for tests
@@ -38,7 +29,6 @@ target_link_libraries(kodetron_tests PRIVATE
     gtest_main
     Qt6::Widgets
     Qt6::Test
-    Qt6::Sql
 )
 
 # Disable clang-tidy for tests

@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find Qt modules
-find_package(Qt6 COMPONENTS Widgets Sql REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 # If using Qt6, set up the module paths
 if (TARGET Qt6::Widgets)
@@ -50,12 +50,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menu_section
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/DataBase
 )
 
 # Link Qt libraries
 if (TARGET Qt6::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Sql)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
     # Qt6 also needs to set rpath for executables for deployment
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
