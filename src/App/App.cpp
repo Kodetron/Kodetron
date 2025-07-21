@@ -7,6 +7,11 @@ App::App(QWidget *parent) : QWidget(parent) {
     // Database initialization
     db_manager = new DatabaseManager();
     int user_id = 1;
+    db_manager->initializeDatabase();
+    User user;
+    if (!db_manager->getUserById(user_id, user)) {
+        db_manager->createUser("default_handle", "default@email.com");
+    }
 
     // Childs initialization
     menu_section = new MenuSection(this);

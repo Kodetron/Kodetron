@@ -187,6 +187,24 @@ void SnippetsModal::updateButtonStates() {
     deleteButton->setEnabled(hasSelection);
 }
 
+void SnippetsModal::saveCurrentSnippet() {
+    if (currentSnippetIndex < 0 || !validateSnippetData()) {
+        return;
+    }
+
+    Snippet updatedSnippet = snippets[currentSnippetIndex];
+    updatedSnippet.name = snippetNameEdit->text().toStdString();
+    updatedSnippet.content = snippetContentEdit->toPlainText().toStdString();
+
+    if (dbManager->updateSnippet(updatedSnippet)) {
+        QMessageBox::information(this, "Success", "Snippet saved successfully!");
+        loadSnippets();
+        hasUnsavedChanges = false;
+    } else {
+        QMessageBox::warning(this, "Error", "Failed to save snippet.");
+    }
+}
+
 bool SnippetsModal::validateSnippetData() {
     if (snippetNameEdit->text().trimmed().isEmpty()) {
         QMessageBox::warning(this, "Validation Error", "Please enter a snippet name.");

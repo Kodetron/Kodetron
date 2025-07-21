@@ -365,6 +365,11 @@ bool DatabaseManager::createSnippet(const std::string& name, const std::string& 
     sqlite3_bind_int(stmt, 3, user_id);
     
     rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE) {
+        logError("Inserting snippet", sqlite3_errmsg(db));
+        sqlite3_finalize(stmt);
+        return false;
+    }
     sqlite3_finalize(stmt);
     
     return rc == SQLITE_DONE;

@@ -178,6 +178,24 @@ void TemplatesModal::clearEditor() {
     hasUnsavedChanges = false;
 }
 
+void TemplatesModal::saveCurrentTemplate() {
+    if (currentTemplateIndex < 0 || !validateTemplateData()) {
+        return;
+    }
+
+    Template updatedTemplate = templates[currentTemplateIndex];
+    updatedTemplate.name = templateNameEdit->text().toStdString();
+    updatedTemplate.content = templateContentEdit->toPlainText().toStdString();
+
+    if (dbManager->updateTemplate(updatedTemplate)) {
+        QMessageBox::information(this, "Success", "Template saved successfully!");
+        loadTemplates();
+        hasUnsavedChanges = false;
+    } else {
+        QMessageBox::warning(this, "Error", "Failed to save template.");
+    }
+}
+
 void TemplatesModal::updateButtonStates() {
     bool hasSelection = currentTemplateIndex >= 0;
     bool hasContent = !templateNameEdit->text().isEmpty() && !templateContentEdit->toPlainText().isEmpty();
