@@ -4,6 +4,12 @@
 #include <QObject>
 #include <QString>
 
+struct EnumExplorerPathType {
+    std::string dir_type;
+    std::string file_type;
+    std::string empty;
+};
+
 class AppState : public QObject {
     Q_OBJECT
   public:
@@ -16,31 +22,27 @@ class AppState : public QObject {
     bool isSelectedDirPath() const;
     bool isSelectedFilePath() const;
 
+    EnumExplorerPathType enumExplorerPathType;
+
   public slots:
-    void setSelectedExplorerPath(const QString &new_path, const QString &path_type);
+    void setSelectedExplorerPath(const QString &new_path, const std::string &new_path_type);
     void setSelectedDirPath(const QString &new_path);
     void setSelectedFilePath(const QString &new_path);
 
   signals:
-    void selectedExplorerPathModified(const QString &new_path, const QString &path_type);
+    void selectedExplorerPathModified(const QString &new_path, const std::string &path_type);
     void selectedDirPathModified(const QString &new_path);
     void selectedFilePathModified(const QString &new_path);
 
   private:
     explicit AppState(QObject *parent = nullptr);
-    QString selected_explorer_path_type;
+    std::string selected_explorer_path_type;
     QString selected_explorer_path;
     QString selected_dir_path;
     QString selected_file_path;
     bool is_selected_explorer_path;
     bool is_selected_dir_path;
     bool is_selected_file_path;
-};
-
-struct enumExplorerPathType {
-    std::string dir_type;
-    std::string file_type;
-    std::string empty;
 };
 
 #endif // APPSTATE_H
