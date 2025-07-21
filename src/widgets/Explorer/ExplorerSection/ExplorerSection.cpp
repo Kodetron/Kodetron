@@ -3,13 +3,13 @@
 
 ExplorerSection::ExplorerSection(QWidget *parent) : QWidget(parent) {
     // Childs initialization
-    explorer_card = new QWidget(this);
+    explorer_card = new ExplorerCard(this);
 
     // Layout
     layout = new QVBoxLayout(this);
-    layout->addWidget(explorer_card);  
+    layout->addWidget(explorer_card);
     setLayout(layout);
-    
+
     // Styles
     setAttribute(Qt::WA_StyledBackground, true);
     assignObjectNames();
