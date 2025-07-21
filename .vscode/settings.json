@@ -76,6 +76,8 @@
         "qsplitter": "cpp",
         "qfile": "cpp",
         "qdebug": "cpp",
-        "qlist": "cpp"
+        "qlist": "cpp",
+        "qicon": "cpp",
+        "qvboxlayout": "cpp"
     }
 }

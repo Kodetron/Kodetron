@@ -46,10 +46,12 @@ add_executable(${PROJECT_NAME} ${KODETRON_SOURCES} ${KODETRON_HEADERS}) # Includ
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utils
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/App
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/MainWindow
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Menu
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Toolbar
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menu_section
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
 )
 
 # Link Qt libraries
