@@ -9,7 +9,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find Qt modules
-find_package(Qt6 COMPONENTS Widgets Sql REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
+
+# Find SQLite3
+find_package(SQLite3 REQUIRED)
 
 # If using Qt6, set up the module paths
 if (TARGET Qt6::Widgets)
@@ -46,16 +49,23 @@ add_executable(${PROJECT_NAME} ${KODETRON_SOURCES} ${KODETRON_HEADERS}) # Includ
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utils
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/App
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/MainWindow
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Menu
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Toolbar
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menu_section
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/toolbar
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/DataBase
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Explorer
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Editor/EditorSection
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/StandardIO/StandardIOSection
 )
 
 # Link Qt libraries
 if (TARGET Qt6::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Sql)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Widgets
+    SQLite::SQLite3
+    )
     # Qt6 also needs to set rpath for executables for deployment
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)

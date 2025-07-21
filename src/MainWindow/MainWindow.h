@@ -3,6 +3,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QIcon>
 #include <QMainWindow>
 #include <QPushButton>
 

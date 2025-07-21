@@ -1,0 +1,20 @@
+#open_snippets_button, #open_templates_button, #open_settings_button {
+  width: 40px;
+  height: 40px;
+  icon-size: 30px 30px;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+}
+
+#open_snippets_button:hover {
+  background-color: #101B31;
+}
+
+#open_templates_button:hover {
+  background-color: #101B31;
+}
+
+#open_settings_button:hover {
+  background-color: #101B31;
+}

@@ -9,7 +9,7 @@
 #include "FileMenuActions.h"
 #include "CodeEditor.h"
 
-class ExitActionTest : public ::testing::Test {
+class ExitActionTest: public::testing::Test {
 protected:
     void SetUp() override {
         // Create QApplication if it doesn't exist
