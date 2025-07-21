@@ -1,0 +1,10 @@
+#standard_io_section {
+    min-width: 300px;
+}
+
+#input_text_box, #output_text_box {
+  background-color: #050505;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}

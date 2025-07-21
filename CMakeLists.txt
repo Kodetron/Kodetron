@@ -52,6 +52,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Menu
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Toolbar
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/menus
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Explorer
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Editor/EditorSection
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/StandardIO/StandardIOSection
 )
 
 # Link Qt libraries

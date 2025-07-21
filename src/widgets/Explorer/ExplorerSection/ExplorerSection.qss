@@ -1,0 +1,3 @@
+#explorer_section {
+    min-width: 200px;
+}

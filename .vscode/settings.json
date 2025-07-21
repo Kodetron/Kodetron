@@ -78,6 +78,7 @@
         "qdebug": "cpp",
         "qlist": "cpp",
         "qicon": "cpp",
-        "qvboxlayout": "cpp"
+        "qvboxlayout": "cpp",
+        "qtextedit": "cpp"
     }
 }

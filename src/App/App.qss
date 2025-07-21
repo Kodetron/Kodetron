@@ -1,0 +1,4 @@
+#file_editor_standardio_splitter::handle {
+    background: #000921; /* Gris claro, visible pero discreto */
+    border: none;
+}

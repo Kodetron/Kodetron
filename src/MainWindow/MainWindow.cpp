@@ -2,10 +2,16 @@
 #include "../App/App.h"
 #include "../utils/StyleLoader/StyleReader.h"
 
+#include <iostream>
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("Kodetron");
     setMinimumSize(500, 350);
     setWindowIcon(QIcon("../assets/Logo.png"));
+
+    QString basePath = QDir::currentPath();
+    std::string path = basePath.toStdString();
+    std::cout << "Current path: " << path << std::endl;
 
     setObjectName("main_window");
 

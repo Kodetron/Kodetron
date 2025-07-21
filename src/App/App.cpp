@@ -7,9 +7,9 @@ App::App(QWidget *parent) : QWidget(parent) {
     // Childs initialization
     menu_section = new MenuSection(this);
     toolbar_section = new ToolbarSection(this);
-    explorer_section = new QWidget(this);
-    editor_section = new QWidget(this);
-    standardio_section = new QWidget(this);
+    explorer_section = new ExplorerSection(this);
+    editor_section = new EditorSection(this);
+    standardio_section = new StandardIOSection(this);
     content_wrapper = new QWidget(this); // content = all - menu_section
 
     // Splitter
@@ -30,11 +30,18 @@ App::App(QWidget *parent) : QWidget(parent) {
     setLayout(vertical_layout);
 
     // Style sheet
+    setAttribute(Qt::WA_StyledBackground, true);
+    assignObjectNames();
     applyQtStyles();
     loadStyleSheet();
 }
+void App::assignObjectNames() {
+    file_editor_standardio_splitter->setObjectName("file_editor_standardio_splitter");
+}
 void App::applyQtStyles() {
-    file_editor_standardio_splitter->setSizes({25, 45, 20});
+    file_editor_standardio_splitter->setSizes({300, 1010, 400});
+    file_editor_standardio_splitter->setCollapsible(0, false);
+    file_editor_standardio_splitter->setCollapsible(1, false);
     horizontal_layout->setContentsMargins(0, 0, 0, 0);
     vertical_layout->setContentsMargins(0, 0, 0, 0);
     vertical_layout->setSpacing(0);
