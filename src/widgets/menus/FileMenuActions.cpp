@@ -9,8 +9,8 @@
 #include <QApplication>
 
 
-FileMenuActions::FileMenuActions(QMainWindow *mainWindow, CodeEditor *textEditor, CodeEditor *inputEditor,
-                                 CodeEditor *outputEditor, QMenu *fileMenu, QObject *parent)
+FileMenuActions::FileMenuActions(QMainWindow *mainWindow, KodetronEditor *textEditor, KodetronEditor *inputEditor,
+                                 KodetronEditor *outputEditor, QMenu *fileMenu, QObject *parent)
     : QObject(parent),
       m_mainWindow(mainWindow),
       m_textEditor(textEditor),
@@ -42,7 +42,7 @@ void FileMenuActions::createActions() {
             QFile file(file_name);
             if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 QTextStream input_stream(&file);
-                m_textEditor->setPlainText(input_stream.readAll());
+                m_textEditor->setText(input_stream.readAll());
                 file.close();
                 m_mainWindow->setWindowTitle("Kodetron - " + QFileInfo(file_name).fileName());
             } else {
@@ -62,7 +62,7 @@ void FileMenuActions::createActions() {
             QFile file(file_name);
             if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
                 QTextStream output_stream(&file);
-                output_stream << m_textEditor->toPlainText();
+                output_stream << m_textEditor->text();
                 file.close();
                 m_mainWindow->setWindowTitle("Kodetron - " + QFileInfo(file_name).fileName());
             } else {
@@ -80,7 +80,7 @@ void FileMenuActions::createActions() {
             QFile file(file_name);
             if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
                 QTextStream output_stream(&file);
-                output_stream << m_textEditor->toPlainText();
+                output_stream << m_textEditor->text();
                 file.close();
                 m_mainWindow->setWindowTitle("Kodetron - " + QFileInfo(file_name).fileName());
             } else {

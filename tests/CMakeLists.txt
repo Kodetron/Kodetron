@@ -12,8 +12,7 @@ add_executable(kodetron_tests
     test_FileExitAction.cpp
     # Add the source files that need to be tested
     ../src/widgets/menus/FileMenuActions.cpp
-    ../src/widgets/CodeEditor.cpp
-    ../src/widgets/LineNumberArea.cpp
+    ../src/widgets/KodetronEditor.cpp
 )
 
 # Add include directories for the test executable
@@ -29,6 +28,7 @@ target_link_libraries(kodetron_tests PRIVATE
     gtest_main
     Qt6::Widgets
     Qt6::Test
+    qscintilla2_qt6
 )
 
 # Disable clang-tidy for tests

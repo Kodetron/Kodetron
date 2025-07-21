@@ -12,7 +12,7 @@
 #include <QFileInfo>
 #include <QSignalSpy>
 #include "FileMenuActions.h"
-#include "CodeEditor.h"
+#include "../src/widgets/KodetronEditor.h"
 
 class SaveAsActionTest : public ::testing::Test {
 protected:
@@ -32,13 +32,13 @@ protected:
         mainWindow = new QMainWindow();
         mainWindow->setWindowTitle("Test Window - Original Title");
         
-        textEditor = new CodeEditor(mainWindow);
-        inputEditor = new CodeEditor(mainWindow);
-        outputEditor = new CodeEditor(mainWindow);
+        textEditor = new KodetronEditor(mainWindow);
+        inputEditor = new KodetronEditor(mainWindow);
+        outputEditor = new KodetronEditor(mainWindow);
         
         // Add test content to the main text editor
         testContent = "int main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}";
-        textEditor->setPlainText(testContent);
+        textEditor->setText(testContent);
         
         // Create file menu
         fileMenu = new QMenu("File", mainWindow);
@@ -87,9 +87,9 @@ protected:
 protected:
     QApplication* app = nullptr;
     QMainWindow* mainWindow = nullptr;
-    CodeEditor* textEditor = nullptr;
-    CodeEditor* inputEditor = nullptr;
-    CodeEditor* outputEditor = nullptr;
+    KodetronEditor* textEditor = nullptr;
+    KodetronEditor* inputEditor = nullptr;
+    KodetronEditor* outputEditor = nullptr;
     QMenu* fileMenu = nullptr;
     FileMenuActions* fileMenuActions = nullptr;
     QTemporaryDir* tempDir = nullptr;
@@ -120,7 +120,7 @@ TEST_F(SaveAsActionTest, SaveAsActionSavesContentToFile) {
         << "Should be able to create test file";
     
     QTextStream out(&file);
-    out << textEditor->toPlainText();
+    out << textEditor->text();
     file.close();
     
     // Verify the file was created and contains the correct content
@@ -142,7 +142,7 @@ TEST_F(SaveAsActionTest, SaveAsActionUpdatesWindowTitle) {
     QFile file(testFilePath);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream out(&file);
-    out << textEditor->toPlainText();
+    out << textEditor->text();
     file.close();
     
     // Simulate the title update that should happen in Save As action
@@ -169,7 +169,7 @@ TEST_F(SaveAsActionTest, SaveAsActionWorksWithDifferentExtensions) {
             << "Should be able to create file: " << fileName.toStdString();
         
         QTextStream out(&file);
-        out << textEditor->toPlainText();
+        out << textEditor->text();
         file.close();
         
         // Verify file exists and has correct content
@@ -189,14 +189,14 @@ TEST_F(SaveAsActionTest, SaveAsActionWorksWithEmptyContent) {
     
     // Clear the text editor
     textEditor->clear();
-    QString emptyContent = textEditor->toPlainText();
+    QString emptyContent = textEditor->text();
     EXPECT_TRUE(emptyContent.isEmpty()) << "Text editor should be empty";
     
     // Simulate saving empty content
     QFile file(testFilePath);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream out(&file);
-    out << textEditor->toPlainText();
+    out << textEditor->text();
     file.close();
     
     // Verify empty file was created
@@ -216,13 +216,13 @@ TEST_F(SaveAsActionTest, SaveAsActionWorksWithLongContent) {
     }
     longContent += "int main() { return 0; }";
     
-    textEditor->setPlainText(longContent);
+    textEditor->setText(longContent);
     
     // Simulate saving long content
     QFile file(testFilePath);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream out(&file);
-    out << textEditor->toPlainText();
+    out << textEditor->text();
     file.close();
     
     // Verify long content was saved correctly
@@ -241,13 +241,13 @@ TEST_F(SaveAsActionTest, SaveAsActionWorksWithSpecialCharacters) {
                            "// Symbols: @#$%^&*()[]{}|\\:;\"'<>?/\n"
                            "int main() { return 0; }";
     
-    textEditor->setPlainText(specialContent);
+    textEditor->setText(specialContent);
     
     // Simulate saving content with special characters
     QFile file(testFilePath);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream out(&file);
-    out << textEditor->toPlainText();
+    out << textEditor->text();
     file.close();
     
     // Verify special characters were saved correctly
@@ -259,17 +259,17 @@ TEST_F(SaveAsActionTest, SaveAsActionWorksWithSpecialCharacters) {
 // Test that Save As preserves the original content in text editor
 TEST_F(SaveAsActionTest, SaveAsActionPreservesEditorContent) {
     QString testFilePath = getTestFilePath("preserve_test.cpp");
-    QString originalContent = textEditor->toPlainText();
+    QString originalContent = textEditor->text();
     
     // Simulate Save As action
     QFile file(testFilePath);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream out(&file);
-    out << textEditor->toPlainText();
+    out << textEditor->text();
     file.close();
     
     // Verify that the text editor still contains the original content
-    EXPECT_EQ(textEditor->toPlainText(), originalContent)
+    EXPECT_EQ(textEditor->text(), originalContent)
         << "Text editor content should be preserved after Save As";
     
     // Verify file also contains the correct content

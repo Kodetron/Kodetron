@@ -10,7 +10,7 @@
 #include <QDir>
 #include <QTest>
 #include "FileMenuActions.h"
-#include "CodeEditor.h"
+#include "../src/widgets/KodetronEditor.h"
 
 class SaveActionTest : public ::testing::Test {
 protected:
@@ -26,13 +26,13 @@ protected:
         mainWindow = new QMainWindow();
         mainWindow->setWindowTitle("Test Window");
         
-        textEditor = new CodeEditor(mainWindow);
-        inputEditor = new CodeEditor(mainWindow);
-        outputEditor = new CodeEditor(mainWindow);
+        textEditor = new KodetronEditor(mainWindow);
+        inputEditor = new KodetronEditor(mainWindow);
+        outputEditor = new KodetronEditor(mainWindow);
         
         // Set up test content in the text editor
         testContent = "#include <iostream>\n\nint main() {\n    std::cout << \"Save test!\" << std::endl;\n    return 0;\n}";
-        textEditor->setPlainText(testContent);
+        textEditor->setText(testContent);
         
         // Create file menu
         fileMenu = new QMenu("File", mainWindow);
@@ -67,9 +67,9 @@ protected:
 protected:
     QApplication* app = nullptr;
     QMainWindow* mainWindow = nullptr;
-    CodeEditor* textEditor = nullptr;
-    CodeEditor* inputEditor = nullptr;
-    CodeEditor* outputEditor = nullptr;
+    KodetronEditor* textEditor = nullptr;
+    KodetronEditor* inputEditor = nullptr;
+    KodetronEditor* outputEditor = nullptr;
     QMenu* fileMenu = nullptr;
     FileMenuActions* fileMenuActions = nullptr;
     QString testFileName;
@@ -91,7 +91,7 @@ TEST_F(SaveActionTest, FileSavingLogic) {
         << "Should be able to create and open file for writing";
     
     QTextStream outputStream(&file);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Verify file was created and content was saved
@@ -122,13 +122,13 @@ TEST_F(SaveActionTest, WindowTitleUpdateAfterSave) {
 TEST_F(SaveActionTest, SaveEmptyContent) {
     // Clear the editor
     textEditor->clear();
-    EXPECT_TRUE(textEditor->toPlainText().isEmpty()) << "Editor should be empty";
+    EXPECT_TRUE(textEditor->text().isEmpty()) << "Editor should be empty";
     
     // Simulate saving empty content
     QFile file(testFileName);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream outputStream(&file);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Verify empty file was created
@@ -146,14 +146,14 @@ TEST_F(SaveActionTest, SaveEmptyContent) {
 // Test saving content with special characters
 TEST_F(SaveActionTest, SaveSpecialCharacters) {
     QString specialContent = "Special chars: àáâãäåæçèéêë ñ 中文 🚀\n// Comment with émojis\nstd::string msg = \"Hello, 世界!\";";
-    textEditor->setPlainText(specialContent);
+    textEditor->setText(specialContent);
     
     // Simulate saving with special characters
     QFile file(testFileName);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream outputStream(&file);
     outputStream.setEncoding(QStringConverter::Utf8);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Verify special characters are preserved
@@ -173,13 +173,13 @@ TEST_F(SaveActionTest, SaveLargeContent) {
         largeContent += QString("// Line %1\nint function%1() { return %1; }\n").arg(i);
     }
     
-    textEditor->setPlainText(largeContent);
+    textEditor->setText(largeContent);
     
     // Simulate saving large content
     QFile file(testFileName);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream outputStream(&file);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Verify large content was saved correctly
@@ -214,7 +214,7 @@ TEST_F(SaveActionTest, SaveToFileWithSpacesInName) {
     QFile file(spacesFileName);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream outputStream(&file);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Verify file was created and content saved
@@ -259,7 +259,7 @@ TEST_F(SaveActionTest, OverwriteExistingFile) {
     // Now overwrite with new content from editor
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream outputStream(&file);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Verify content was overwritten
@@ -275,13 +275,13 @@ TEST_F(SaveActionTest, OverwriteExistingFile) {
 // Test preserving line endings
 TEST_F(SaveActionTest, PreserveLineEndings) {
     QString contentWithDifferentLineEndings = "Line 1\nLine 2\r\nLine 3\nLine 4";
-    textEditor->setPlainText(contentWithDifferentLineEndings);
+    textEditor->setText(contentWithDifferentLineEndings);
     
     // Save content
     QFile file(testFileName);
     ASSERT_TRUE(file.open(QIODevice::WriteOnly | QIODevice::Text));
     QTextStream outputStream(&file);
-    outputStream << textEditor->toPlainText();
+    outputStream << textEditor->text();
     file.close();
     
     // Read back content

@@ -8,11 +8,23 @@ project(Kodetron VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
+# Enable Qt's automatic meta-object compiler (MOC)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+include_directories(/mingw64/include)
+link_directories(/mingw64/lib) # Installed qscintilla here
+
+
 # Find Qt modules
 find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 # Find SQLite3
 find_package(SQLite3 REQUIRED)
+
+
 
 # If using Qt6, set up the module paths
 if (TARGET Qt6::Widgets)
@@ -45,7 +57,7 @@ file(GLOB KODETRON_HEADERS
 add_executable(${PROJECT_NAME} ${KODETRON_SOURCES} ${KODETRON_HEADERS}) # Include headers for MOC processing
 
 # Add the directory containing your custom headers to the include paths
-# This tells the compiler to look in 'Kodetron/src/widgets' for headers like "CodeEditor.h"
+# This tells the compiler to look in 'Kodetron/src/widgets' for headers like
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utils
@@ -65,6 +77,7 @@ if (TARGET Qt6::Widgets)
     target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
     SQLite::SQLite3
+    qscintilla2_qt6 # Required for qscintilla
     )
     # Qt6 also needs to set rpath for executables for deployment
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")

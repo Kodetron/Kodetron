@@ -11,7 +11,7 @@
 #include <QTest>
 #include <QSignalSpy>
 #include "FileMenuActions.h"
-#include "CodeEditor.h"
+#include "../src/widgets/KodetronEditor.h"
 
 class OpenActionTest : public ::testing::Test {
 protected:
@@ -27,9 +27,9 @@ protected:
         mainWindow = new QMainWindow();
         mainWindow->setWindowTitle("Test Window");
         
-        textEditor = new CodeEditor(mainWindow);
-        inputEditor = new CodeEditor(mainWindow);
-        outputEditor = new CodeEditor(mainWindow);
+        textEditor = new KodetronEditor(mainWindow);
+        inputEditor = new KodetronEditor(mainWindow);
+        outputEditor = new KodetronEditor(mainWindow);
         
         // Create file menu
         fileMenu = new QMenu("File", mainWindow);
@@ -76,9 +76,9 @@ protected:
 protected:
     QApplication* app = nullptr;
     QMainWindow* mainWindow = nullptr;
-    CodeEditor* textEditor = nullptr;
-    CodeEditor* inputEditor = nullptr;
-    CodeEditor* outputEditor = nullptr;
+    KodetronEditor* textEditor = nullptr;
+    KodetronEditor* inputEditor = nullptr;
+    KodetronEditor* outputEditor = nullptr;
     QMenu* fileMenu = nullptr;
     FileMenuActions* fileMenuActions = nullptr;
     QString testFileName;
@@ -113,8 +113,8 @@ TEST_F(OpenActionTest, ValidFileContentLoading) {
     EXPECT_EQ(fileContent, testFileContent) << "File content should match expected content";
     
     // Simulate loading content into editor (what the Open action does)
-    textEditor->setPlainText(fileContent);
-    EXPECT_EQ(textEditor->toPlainText(), testFileContent) << "Text editor should contain file content";
+    textEditor->setText(fileContent);
+    EXPECT_EQ(textEditor->text(), testFileContent) << "Text editor should contain file content";
 }
 
 // Test window title update functionality
@@ -169,8 +169,8 @@ TEST_F(OpenActionTest, EmptyFileHandling) {
     EXPECT_TRUE(content.isEmpty()) << "Empty file should return empty content";
     
     // Simulate loading empty content
-    textEditor->setPlainText(content);
-    EXPECT_TRUE(textEditor->toPlainText().isEmpty()) << "Editor should be empty after loading empty file";
+    textEditor->setText(content);
+    EXPECT_TRUE(textEditor->text().isEmpty()) << "Editor should be empty after loading empty file";
     
     // Clean up
     QFile::remove(emptyFileName);
