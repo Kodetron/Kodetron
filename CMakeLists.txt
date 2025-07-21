@@ -11,6 +11,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find Qt modules
 find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
+# Find SQLite3
+find_package(SQLite3 REQUIRED)
+
 # If using Qt6, set up the module paths
 if (TARGET Qt6::Widgets)
     qt_standard_project_setup() # Sets up includes, defines for Qt6
@@ -59,7 +62,10 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 # Link Qt libraries
 if (TARGET Qt6::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Widgets
+    SQLite::SQLite3
+    )
     # Qt6 also needs to set rpath for executables for deployment
     # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH_USE_LINK_PATH}")
     # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)

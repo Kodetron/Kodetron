@@ -9,10 +9,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setMinimumSize(500, 350);
     setWindowIcon(QIcon("../assets/Logo.png"));
 
-    QString basePath = QDir::currentPath();
-    std::string path = basePath.toStdString();
-    std::cout << "Current path: " << path << std::endl;
-
     setObjectName("main_window");
 
     App *app = new App(this);

@@ -8,7 +8,14 @@ QToolButton *ToolbarSection::createToolButton(const QString &iconPath, const QSt
     return button;
 }
 
-ToolbarSection::ToolbarSection(QWidget *parent) : QWidget(parent) {
+ToolbarSection::ToolbarSection(DatabaseManager* dbManager, int userId, QWidget *parent):
+    QWidget(parent),
+    dbManager(dbManager), 
+    currentUserId(userId),
+    settingsModal(nullptr), // Initialize modal pointers to nullptr
+    snippetsModal(nullptr),
+    templatesModal(nullptr)
+{
     // Initialize buttons with icons and tooltips
     open_snippets_button = createToolButton("../assets/open_snippets_icon.png", "Open Snippets");
     connect(open_snippets_button, &QToolButton::clicked, this, &ToolbarSection::openSnippets);
@@ -34,13 +41,25 @@ ToolbarSection::ToolbarSection(QWidget *parent) : QWidget(parent) {
     loadStyleSheet();
 }
 void ToolbarSection::openSnippets() {
-    // Logic to open snippets modal
+    if (!snippetsModal) {
+        // Create the SnippetsModal if it hasn't been created yet
+        snippetsModal = new SnippetsModal(dbManager, currentUserId, this);
+    }
+    snippetsModal->exec();
 }
 void ToolbarSection::openTemplates() {
-    // Logic to open templates modal
+    if (!templatesModal) {
+        // Create the TemplatesModal if it hasn't been created yet
+        templatesModal = new TemplatesModal(dbManager, currentUserId, this);
+    }
+    templatesModal->exec();
 }
 void ToolbarSection::openSettings() {
-    // Logic to open settings modal
+    if (!settingsModal) {
+        // Create the SettingsModal if it hasn't been created yet
+        settingsModal = new SettingsModal(dbManager, currentUserId, this);
+    }
+    settingsModal->exec();
 }
 
 void ToolbarSection::assignObjectNames() {

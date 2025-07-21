@@ -33,6 +33,7 @@ class App : public QWidget {
     QSplitter *file_editor_standardio_splitter;
     QVBoxLayout *vertical_layout;
     QHBoxLayout *horizontal_layout;
+    DatabaseManager* db_manager;
 };
 
 #endif // APP_H

@@ -4,9 +4,13 @@
 #include <iostream>
 
 App::App(QWidget *parent) : QWidget(parent) {
+    // Database initialization
+    db_manager = new DatabaseManager();
+    int user_id = 1;
+
     // Childs initialization
     menu_section = new MenuSection(this);
-    toolbar_section = new ToolbarSection(this);
+    toolbar_section = new ToolbarSection(db_manager, user_id, this);
     explorer_section = new ExplorerSection(this);
     editor_section = new EditorSection(this);
     standardio_section = new StandardIOSection(this);

@@ -79,6 +79,9 @@
         "qlist": "cpp",
         "qicon": "cpp",
         "qvboxlayout": "cpp",
-        "qtextedit": "cpp"
+        "qtextedit": "cpp",
+        "ranges": "cpp",
+        "text_encoding": "cpp",
+        "cinttypes": "cpp"
     }
 }
