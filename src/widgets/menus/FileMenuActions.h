@@ -4,7 +4,7 @@
 #include <QObject>      // Base class for all Qt objects
 #include <QMainWindow>  // Main window class
 #include <QMenu>        // Menus
-#include "CodeEditor.h" // Include CodeEditor as it's used for text editor widgets
+#include "../KodetronEditor.h" // Use KodetronEditor as the text editor widget
 
 class QAction;
 class QFileDialog;
@@ -18,14 +18,14 @@ class FileMenuActions : public QObject {
 
 public:
 
-    FileMenuActions(QMainWindow *mainWindow, CodeEditor *textEditor, CodeEditor *inputEditor,
-                    CodeEditor *outputEditor, QMenu *fileMenu, QObject *parent = nullptr);
+    FileMenuActions(QMainWindow *mainWindow, KodetronEditor *textEditor, KodetronEditor *inputEditor,
+                    KodetronEditor *outputEditor, QMenu *fileMenu, QObject *parent = nullptr);
 
 private:
     QMainWindow *m_mainWindow;
-    CodeEditor *m_textEditor;
-    CodeEditor *m_inputEditor;
-    CodeEditor *m_outputEditor;
+    KodetronEditor *m_textEditor;
+    KodetronEditor *m_inputEditor;
+    KodetronEditor *m_outputEditor;
     QMenu *m_fileMenu;
 
     void createActions();

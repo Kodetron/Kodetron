@@ -5,7 +5,7 @@
 #include <QAction>
 #include <QTest>
 #include "FileMenuActions.h"
-#include "CodeEditor.h"
+#include "../src/widgets/KodetronEditor.h"
 
 class FileMenuActionsTest : public ::testing::Test {
 protected:
@@ -21,14 +21,14 @@ protected:
         mainWindow = new QMainWindow();
         mainWindow->setWindowTitle("Test Window - Some File.cpp");
         
-        textEditor = new CodeEditor(mainWindow);
-        inputEditor = new CodeEditor(mainWindow);
-        outputEditor = new CodeEditor(mainWindow);
+        textEditor = new KodetronEditor(mainWindow);
+        inputEditor = new KodetronEditor(mainWindow);
+        outputEditor = new KodetronEditor(mainWindow);
         
         // Add some initial content to test clearing
-        textEditor->setPlainText("int main() { return 0; }");
-        inputEditor->setPlainText("test input data");
-        outputEditor->setPlainText("test output data");
+        textEditor->setText("int main() { return 0; }");
+        inputEditor->setText("test input data");
+        outputEditor->setText("test output data");
         
         // Create file menu
         fileMenu = new QMenu("File", mainWindow);
@@ -57,9 +57,9 @@ protected:
 protected:
     QApplication* app = nullptr;
     QMainWindow* mainWindow = nullptr;
-    CodeEditor* textEditor = nullptr;
-    CodeEditor* inputEditor = nullptr;
-    CodeEditor* outputEditor = nullptr;
+    KodetronEditor* textEditor = nullptr;
+    KodetronEditor* inputEditor = nullptr;
+    KodetronEditor* outputEditor = nullptr;
     QMenu* fileMenu = nullptr;
     FileMenuActions* fileMenuActions = nullptr;
 };
@@ -74,7 +74,7 @@ TEST_F(FileMenuActionsTest, NewActionExists) {
 // Test that the New action clears the text editor
 TEST_F(FileMenuActionsTest, NewActionClearsTextEditor) {
     // Verify initial content exists
-    EXPECT_FALSE(textEditor->toPlainText().isEmpty()) << "Text editor should have initial content";
+    EXPECT_FALSE(textEditor->text().isEmpty()) << "Text editor should have initial content";
     
     // Find and trigger the New action
     QAction* newAction = findNewAction();
@@ -84,13 +84,13 @@ TEST_F(FileMenuActionsTest, NewActionClearsTextEditor) {
     newAction->trigger();
     
     // Verify text editor is cleared
-    EXPECT_TRUE(textEditor->toPlainText().isEmpty()) << "Text editor should be cleared after New action";
+    EXPECT_TRUE(textEditor->text().isEmpty()) << "Text editor should be cleared after New action";
 }
 
 // Test that the New action clears the input editor
 TEST_F(FileMenuActionsTest, NewActionClearsInputEditor) {
     // Verify initial content exists
-    EXPECT_FALSE(inputEditor->toPlainText().isEmpty()) << "Input editor should have initial content";
+    EXPECT_FALSE(inputEditor->text().isEmpty()) << "Input editor should have initial content";
     
     // Find and trigger the New action
     QAction* newAction = findNewAction();
@@ -100,13 +100,13 @@ TEST_F(FileMenuActionsTest, NewActionClearsInputEditor) {
     newAction->trigger();
     
     // Verify input editor is cleared
-    EXPECT_TRUE(inputEditor->toPlainText().isEmpty()) << "Input editor should be cleared after New action";
+    EXPECT_TRUE(inputEditor->text().isEmpty()) << "Input editor should be cleared after New action";
 }
 
 // Test that the New action clears the output editor
 TEST_F(FileMenuActionsTest, NewActionClearsOutputEditor) {
     // Verify initial content exists
-    EXPECT_FALSE(outputEditor->toPlainText().isEmpty()) << "Output editor should have initial content";
+    EXPECT_FALSE(outputEditor->text().isEmpty()) << "Output editor should have initial content";
     
     // Find and trigger the New action
     QAction* newAction = findNewAction();
@@ -116,7 +116,7 @@ TEST_F(FileMenuActionsTest, NewActionClearsOutputEditor) {
     newAction->trigger();
     
     // Verify output editor is cleared
-    EXPECT_TRUE(outputEditor->toPlainText().isEmpty()) << "Output editor should be cleared after New action";
+    EXPECT_TRUE(outputEditor->text().isEmpty()) << "Output editor should be cleared after New action";
 }
 
 // Test that the New action resets the window title
@@ -140,9 +140,9 @@ TEST_F(FileMenuActionsTest, NewActionResetsWindowTitle) {
 // Test that the New action clears all editors and resets title in one operation
 TEST_F(FileMenuActionsTest, NewActionClearsAllEditorsAndResetsTitle) {
     // Verify initial state
-    EXPECT_FALSE(textEditor->toPlainText().isEmpty());
-    EXPECT_FALSE(inputEditor->toPlainText().isEmpty());
-    EXPECT_FALSE(outputEditor->toPlainText().isEmpty());
+    EXPECT_FALSE(textEditor->text().isEmpty());
+    EXPECT_FALSE(inputEditor->text().isEmpty());
+    EXPECT_FALSE(outputEditor->text().isEmpty());
     EXPECT_NE(mainWindow->windowTitle(), "Kodetron - New Document");
     
     // Find and trigger the New action
@@ -153,9 +153,9 @@ TEST_F(FileMenuActionsTest, NewActionClearsAllEditorsAndResetsTitle) {
     newAction->trigger();
     
     // Verify all changes happened
-    EXPECT_TRUE(textEditor->toPlainText().isEmpty()) << "Text editor should be cleared";
-    EXPECT_TRUE(inputEditor->toPlainText().isEmpty()) << "Input editor should be cleared";
-    EXPECT_TRUE(outputEditor->toPlainText().isEmpty()) << "Output editor should be cleared";
+    EXPECT_TRUE(textEditor->text().isEmpty()) << "Text editor should be cleared";
+    EXPECT_TRUE(inputEditor->text().isEmpty()) << "Input editor should be cleared";
+    EXPECT_TRUE(outputEditor->text().isEmpty()) << "Output editor should be cleared";
     EXPECT_EQ(mainWindow->windowTitle(), "Kodetron - New Document") << "Window title should be reset";
 }
 
@@ -170,9 +170,9 @@ TEST_F(FileMenuActionsTest, NewActionCanBeTriggeredMultipleTimes) {
     newAction->trigger();
     
     // Should still work correctly
-    EXPECT_TRUE(textEditor->toPlainText().isEmpty());
-    EXPECT_TRUE(inputEditor->toPlainText().isEmpty());
-    EXPECT_TRUE(outputEditor->toPlainText().isEmpty());
+    EXPECT_TRUE(textEditor->text().isEmpty());
+    EXPECT_TRUE(inputEditor->text().isEmpty());
+    EXPECT_TRUE(outputEditor->text().isEmpty());
     EXPECT_EQ(mainWindow->windowTitle(), "Kodetron - New Document");
 }
 
@@ -190,8 +190,8 @@ TEST_F(FileMenuActionsTest, NewActionWorksWhenEditorsAlreadyEmpty) {
     newAction->trigger();
     
     // Should still work without issues
-    EXPECT_TRUE(textEditor->toPlainText().isEmpty());
-    EXPECT_TRUE(inputEditor->toPlainText().isEmpty());
-    EXPECT_TRUE(outputEditor->toPlainText().isEmpty());
+    EXPECT_TRUE(textEditor->text().isEmpty());
+    EXPECT_TRUE(inputEditor->text().isEmpty());
+    EXPECT_TRUE(outputEditor->text().isEmpty());
     EXPECT_EQ(mainWindow->windowTitle(), "Kodetron - New Document");
 }

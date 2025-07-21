@@ -7,7 +7,7 @@
 #include <QSignalSpy>
 #include <QTimer>
 #include "FileMenuActions.h"
-#include "CodeEditor.h"
+#include "../src/widgets/KodetronEditor.h"
 
 class ExitActionTest: public::testing::Test {
 protected:
@@ -23,14 +23,14 @@ protected:
         mainWindow = new QMainWindow();
         mainWindow->setWindowTitle("Test Window");
         
-        textEditor = new CodeEditor(mainWindow);
-        inputEditor = new CodeEditor(mainWindow);
-        outputEditor = new CodeEditor(mainWindow);
+        textEditor = new KodetronEditor(mainWindow);
+        inputEditor = new KodetronEditor(mainWindow);
+        outputEditor = new KodetronEditor(mainWindow);
         
         // Add some test content
-        textEditor->setPlainText("int main() { return 0; }");
-        inputEditor->setPlainText("test input");
-        outputEditor->setPlainText("test output");
+        textEditor->setText("int main() { return 0; }");
+        inputEditor->setText("test input");
+        outputEditor->setText("test output");
         
         // Create file menu
         fileMenu = new QMenu("File", mainWindow);
@@ -59,9 +59,9 @@ protected:
 protected:
     QApplication* app = nullptr;
     QMainWindow* mainWindow = nullptr;
-    CodeEditor* textEditor = nullptr;
-    CodeEditor* inputEditor = nullptr;
-    CodeEditor* outputEditor = nullptr;
+    KodetronEditor* textEditor = nullptr;
+    KodetronEditor* inputEditor = nullptr;
+    KodetronEditor* outputEditor = nullptr;
     QMenu* fileMenu = nullptr;
     FileMenuActions* fileMenuActions = nullptr;
 };
@@ -225,9 +225,9 @@ TEST_F(ExitActionTest, ExitActionStateUnaffectedByEditorContent) {
         << "Exit action state should not change when editors are cleared";
     
     // Add content to editors
-    textEditor->setPlainText("New content");
-    inputEditor->setPlainText("New input");
-    outputEditor->setPlainText("New output");
+    textEditor->setText("New content");
+    inputEditor->setText("New input");
+    outputEditor->setText("New output");
     EXPECT_EQ(exitAction->isEnabled(), initiallyEnabled)
         << "Exit action state should not change when editors have content";
 }
