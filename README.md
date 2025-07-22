@@ -14,9 +14,13 @@ Angel David Ruiz Barbosa - aruizba@unal.edu.co
 Kodetron is a text editor specifically designed for C++ development within the context of competitive programming.
 
 ### Objective
+
 The main goal of Kodetron is to provide programmers with a specialized tool that facilitates fast, precise, and collaborative code development tailored to the demands of competitive programming.
+
 =======
-<img src="assets/Logo.png" width="200">
+<div style="text-align: center;">
+<img src="assets/Logo.png" width="150">
+</div>
 
 ## Developer Group
 Natilla de la Abuela
