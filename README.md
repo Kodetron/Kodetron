@@ -17,7 +17,6 @@ Kodetron is a text editor specifically designed for C++ development within the c
 
 The main goal of Kodetron is to provide programmers with a specialized tool that facilitates fast, precise, and collaborative code development tailored to the demands of competitive programming.
 
-=========
 <p align="center">
   <img src="assets/Logo.png" width="150">
 </p>
