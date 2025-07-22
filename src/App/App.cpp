@@ -18,7 +18,7 @@ App::App(QWidget *parent) : QWidget(parent) {
     toolbar_section = new ToolbarSection(db_manager, user_id, this);
     explorer_section = new ExplorerSection(this);
     editor_section = new EditorSection(this);
-    standardio_section = new StandardIOSection(this);
+    standardio_section = new StandardIOSection(editor_section->getCodeEditor(), this);
     content_wrapper = new QWidget(this); // content = all - menu_section
 
     // Splitter

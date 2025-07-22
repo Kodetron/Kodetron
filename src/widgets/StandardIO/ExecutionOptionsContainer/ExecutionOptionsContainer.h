@@ -15,6 +15,7 @@ class ExecutionOptionsContainer : public QWidget {
     void assignObjectNames();
     void applyQtStyles();
     void loadStyleSheet();
+    QPushButton* getRunButton() const { return run_button; }
 
   private:
     QPushButton *run_button;

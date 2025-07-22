@@ -13,6 +13,7 @@ class EditorSection : public QWidget {
     void assignObjectNames();
     void applyQtStyles();
     void loadStyleSheet();
+    KodetronEditor* getCodeEditor() const { return code_editor; }
 
   private:
     QWidget *files_container;
