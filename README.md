@@ -1,7 +1,6 @@
 # Kodetron
 Kodetron IDE Repository
 
-<<<<<<< HEAD
 ### Group
 Natilla de la Abuela
 
@@ -49,5 +48,3 @@ If you want further documentation, please check out our [documentation repositor
 
 ### Objective
 The main goal of Kodetron is to provide programmers with a specialized tool that facilitates fast, precise, and collaborative code development tailored to the demands of competitive programming.
-
->>>>>>> upstream/main
