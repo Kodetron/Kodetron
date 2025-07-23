@@ -5,21 +5,12 @@ find_package(Qt6 COMPONENTS Widgets Test REQUIRED)
 
 # Create test executable
 add_executable(kodetron_tests
-    test_FileNewAction.cpp
-    test_FileOpenAction.cpp
-    test_FileSaveAction.cpp
-    test_FileSaveAsAction.cpp
-    test_FileExitAction.cpp
-    # Add the source files that need to be tested
-    ../src/widgets/menus/FileMenuActions.cpp
-    ../src/widgets/KodetronEditor.cpp
+    
 )
 
 # Add include directories for the test executable
 target_include_directories(kodetron_tests PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/menus
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/toolbar
 )
 
 # Link libraries for tests

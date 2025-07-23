@@ -17,6 +17,7 @@ class ExplorerCard : public QWidget {
     void onSelectedExplorerPathModified(const QString &new_path, const std::string &path_type);
     void renderDir(const QString &dir_path);
     void renderFile(const QString &file_path);
+    void onTreeViewItemClicked(const QModelIndex &index);
     void assignObjectNames();
     void applyQtStyles();
     void loadStyleSheet();

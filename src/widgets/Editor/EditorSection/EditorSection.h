@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
-#include "../../KodetronEditor.h"
+#include "../../KodetronEditor/KodetronEditor.h"
 
 class EditorSection : public QWidget {
     Q_OBJECT

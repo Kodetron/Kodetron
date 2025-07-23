@@ -5,7 +5,6 @@
 #run_button {
   height: 40px;
   max-height: 40px;
-  max-width: 200px;
   background-color: #0077ee;
   border: none;
   border-radius: 4px;

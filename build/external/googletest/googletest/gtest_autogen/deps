@@ -1,0 +1,11 @@
+gtest_autogen/timestamp: \
+	C:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in \
+	C:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake \
+	C:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake \
+	D:/Hackeando/Kodetron\ wrapper/Kodetron/external/googletest/googletest/CMakeLists.txt \
+	D:/Hackeando/Kodetron\ wrapper/Kodetron/external/googletest/googletest/cmake/Config.cmake.in \
+	D:/Hackeando/Kodetron\ wrapper/Kodetron/external/googletest/googletest/cmake/gtest.pc.in \
+	D:/Hackeando/Kodetron\ wrapper/Kodetron/external/googletest/googletest/cmake/gtest_main.pc.in \
+	D:/Hackeando/Kodetron\ wrapper/Kodetron/external/googletest/googletest/cmake/internal_utils.cmake \
+	D:/Hackeando/Kodetron\ wrapper/Kodetron/external/googletest/googletest/src/gtest-all.cc \
+	C:/msys64/mingw64/bin/cmake.exe

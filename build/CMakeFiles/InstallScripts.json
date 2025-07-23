@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Hackeando/Kodetron wrapper/Kodetron/build/cmake_install.cmake",
+		"D:/Hackeando/Kodetron wrapper/Kodetron/build/external/googletest/cmake_install.cmake",
+		"D:/Hackeando/Kodetron wrapper/Kodetron/build/external/googletest/googletest/cmake_install.cmake",
+		"D:/Hackeando/Kodetron wrapper/Kodetron/build/tests/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

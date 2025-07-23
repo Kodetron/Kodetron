@@ -10,9 +10,6 @@ MenuSection::MenuSection(QWidget *parent) : QWidget(parent) {
     // Add actions to the File menu
     open_file_action = file_menu->addAction("Open file");
     open_dir_action = file_menu->addAction("Open folder");
-    file_menu->addAction("New file");
-    file_menu->addAction("Save file");
-    file_menu->addAction("New foler");
 
     // Connect actions to slots
     connect(open_file_action, &QAction::triggered, this, &MenuSection::onOpenFile);
@@ -38,7 +35,7 @@ void MenuSection::onOpenDir() {
     }
 }
 void MenuSection::onOpenFile() {
-    QString filePath = FileDialog::getOpenFilePath(this);
+    QString filePath = FileDialog::getOpenCppFilePath(this);
     if (!filePath.isEmpty()) {
         AppState::instance().setSelectedExplorerPath(filePath, AppState::instance().enumExplorerPathType.file_type);
     }
