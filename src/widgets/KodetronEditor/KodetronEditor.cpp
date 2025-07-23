@@ -13,7 +13,31 @@ KodetronEditor::KodetronEditor(QWidget* parent)
     setupCaretLineHighlight();
     setupAutocompletion();
     setupDefaultTheme();
-    
+
+    // Subscribe to AppState file path changes
+    connect(&AppState::instance(), &AppState::selectedFilePathModified,
+            this, &KodetronEditor::onFilePathChanged);
+
+    // Add Ctrl+S shortcut for saving
+    QShortcut* saveShortcut = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_S), this);
+    connect(saveShortcut, &QShortcut::activated, this, &KodetronEditor::saveCurrentFile);
+}
+
+void KodetronEditor::saveCurrentFile() {
+    QString file_path = AppState::instance().getSelectedFilePath();
+    QString content = text();
+    if (!file_path.isEmpty()) {
+        bool success = FileDialog::writeFileContents(file_path, content);
+    }
+}
+
+void KodetronEditor::onFilePathChanged(const QString& file_path) {
+    if (file_path.isEmpty()) {
+        setText(QString()); // Clear editor if no file path is set
+        return;
+    }
+    QString content = FileDialog::readFileContents(file_path);
+    setText(content);
 }
 
 void KodetronEditor::setupCppSyntaxHighlighting() {

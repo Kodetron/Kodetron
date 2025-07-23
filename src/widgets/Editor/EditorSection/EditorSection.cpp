@@ -1,15 +1,12 @@
 #include "EditorSection.h"
-#include "../../KodetronEditor.h"
 #include "../utils/StyleLoader/StyleReader.h"
 
 EditorSection::EditorSection(QWidget *parent) : QWidget(parent) {
     // Childs initialization
-    files_container = new QWidget(this);
     code_editor = new KodetronEditor(this);
 
     // Layout
     layout = new QVBoxLayout(this);
-    layout->addWidget(files_container);
     layout->addWidget(code_editor);
     setLayout(layout);
 
@@ -25,7 +22,6 @@ void EditorSection::assignObjectNames() {
 void EditorSection::applyQtStyles() {
     layout->setContentsMargins(10, 10, 10, 10);
     layout->setSpacing(20);
-    files_container->setStyleSheet("background-color: #050505; border: none; border-radius: 4px; max-height: 40px;");
     code_editor->setStyleSheet("border: none;");
 }
 void EditorSection::loadStyleSheet() {

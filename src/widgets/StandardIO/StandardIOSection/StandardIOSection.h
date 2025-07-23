@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QTextEdit>
-#include "../../KodetronEditor.h"
+#include "../../KodetronEditor/KodetronEditor.h"
 
 
 class StandardIOSection : public QWidget {

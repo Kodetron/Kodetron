@@ -70,6 +70,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Explorer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Editor/EditorSection
     ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/StandardIO/StandardIOSection
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/KodetronEditor
 )
 
 # Link Qt libraries

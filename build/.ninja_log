@@ -1,0 +1,47 @@
+# ninja log v7
+11	126	7749994597751531	external/googletest/googletest/gtest_autogen/timestamp	4413edfefeccb40d
+11	126	7749994597751531	external/googletest/googletest/gtest_autogen/mocs_compilation.cpp	4413edfefeccb40d
+11	126	7749994597751531	D:/Hackeando/Kodetron wrapper/Kodetron/build/external/googletest/googletest/gtest_autogen/timestamp	4413edfefeccb40d
+11	126	7749994597751531	D:/Hackeando/Kodetron wrapper/Kodetron/build/external/googletest/googletest/gtest_autogen/mocs_compilation.cpp	4413edfefeccb40d
+128	190	7749994598081880	external/googletest/googletest/CMakeFiles/gtest.dir/gtest_autogen/mocs_compilation.cpp.obj	441088231b6abd30
+22	238	7750023448093216	Kodetron_autogen/timestamp	3b46f14d551bba41
+22	238	7750023448093216	Kodetron_autogen/mocs_compilation.cpp	3b46f14d551bba41
+22	238	7750023448093216	D:/Hackeando/Kodetron wrapper/Kodetron/build/Kodetron_autogen/timestamp	3b46f14d551bba41
+22	238	7750023448093216	D:/Hackeando/Kodetron wrapper/Kodetron/build/Kodetron_autogen/mocs_compilation.cpp	3b46f14d551bba41
+1903	2050	7749994615838489	CMakeFiles/Kodetron.dir/src/widgets/Editor/EditorSection.cpp.obj	ca3e737c96f2235
+1886	4620	7749994615677980	CMakeFiles/Kodetron.dir/src/Global/AppState.cpp.obj	3ddc7883fbe82469
+1898	4679	7749994615792123	CMakeFiles/Kodetron.dir/src/utils/StyleLoader/StyleReader.cpp.obj	ab84413bbfd22cfe
+241	1645	7750023450289739	CMakeFiles/Kodetron.dir/src/widgets/StandardIO/ExecutionOptionsContainer/ExecutionOptionsContainer.cpp.obj	dae97f20402d265f
+927	2999	7750003688528834	CMakeFiles/Kodetron.dir/src/FileSystemOperations/FileDialog/FileDialog.cpp.obj	9084725d024a669c
+233	1797	7750018209731876	CMakeFiles/Kodetron.dir/src/widgets/Menu/MenuSection/MenuSection.cpp.obj	994c97c228bb0bec
+1894	5384	7749994615750364	CMakeFiles/Kodetron.dir/src/main.cpp.obj	966bc6adad9c4963
+1880	5399	7749994615606193	CMakeFiles/Kodetron.dir/src/Database/DataBaseManager.cpp.obj	2f1e16b1b3384356
+5278	5450	7749994649592927	CMakeFiles/Kodetron.dir/src/widgets/menus/FileMenuActions.cpp.obj	8b7049aaf7c920dd
+238	1731	7750023450259007	CMakeFiles/Kodetron.dir/src/widgets/Editor/EditorSection/EditorSection.cpp.obj	a4d2650db06314f
+1918	5518	7749994615987635	CMakeFiles/Kodetron.dir/src/widgets/Explorer/ExplorerSection/ExplorerSection.cpp.obj	af990cfe4c235331
+946	3283	7750003688719910	CMakeFiles/Kodetron.dir/src/widgets/StandardIO/StandardIOSection/StandardIOSection.cpp.obj	d35054503877bdb9
+241	1942	7750008651549269	CMakeFiles/Kodetron.dir/src/widgets/Explorer/ExplorerCard/ExplorerCard.cpp.obj	bcb05f93342831a8
+244	1773	7750008651579244	CMakeFiles/Kodetron.dir/src/widgets/KodetronEditor/KodetronEditor.cpp.obj	2b9aa8c7f4e47899
+1949	6251	7749994616300223	CMakeFiles/Kodetron.dir/src/widgets/Toolbar/Buttons/SettingsModal.cpp.obj	95ff509d282560a
+2050	6470	7749994617312717	CMakeFiles/Kodetron.dir/src/widgets/Toolbar/Buttons/SnippetsModal.cpp.obj	201aa9a50ed4c6bf
+923	3575	7750003688498270	CMakeFiles/Kodetron.dir/src/App/App.cpp.obj	dd83d7f768e13eed
+930	3601	7750003688558859	CMakeFiles/Kodetron.dir/src/MainWindow/MainWindow.cpp.obj	636ab91e2ba3eb7b
+921	3828	7750003688467416	CMakeFiles/Kodetron.dir/Kodetron_autogen/mocs_compilation.cpp.obj	2730df8b714d4685
+132	7242	7749994598123053	external/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	100224722684046a
+7244	7361	7749994669241638	lib/libgtest.a	7d7afcf98ce05b61
+7362	7480	7749994671324855	external/googletest/googletest/gtest_main_autogen/timestamp	3f8428d27e656318
+7362	7480	7749994671324855	external/googletest/googletest/gtest_main_autogen/mocs_compilation.cpp	3f8428d27e656318
+7362	7480	7749994671324855	D:/Hackeando/Kodetron wrapper/Kodetron/build/external/googletest/googletest/gtest_main_autogen/timestamp	3f8428d27e656318
+7362	7480	7749994671324855	D:/Hackeando/Kodetron wrapper/Kodetron/build/external/googletest/googletest/gtest_main_autogen/mocs_compilation.cpp	3f8428d27e656318
+7480	7526	7749994671613944	external/googletest/googletest/CMakeFiles/gtest_main.dir/gtest_main_autogen/mocs_compilation.cpp.obj	fadb395e763ed95e
+4705	7687	7749994644017891	CMakeFiles/Kodetron.dir/src/widgets/Toolbar/ToolbarSection/ToolbarSection.cpp.obj	445b38ccff0ffbe9
+4648	7704	7749994643526262	CMakeFiles/Kodetron.dir/src/widgets/Toolbar/Buttons/TemplatesModal.cpp.obj	6f1365e05251469b
+1731	1933	7750023465190650	Kodetron.exe	c02f2b4a84656813
+7484	8187	7749994671641937	external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	81bd370c46cf0ab3
+8188	8251	7749994678683959	lib/libgtest_main.a	eb7a1017810238b3
+8251	8367	7749994680212972	tests/kodetron_tests_autogen/timestamp	ab039a409c8db8e8
+8251	8367	7749994680212972	tests/kodetron_tests_autogen/mocs_compilation.cpp	ab039a409c8db8e8
+8251	8367	7749994680212972	D:/Hackeando/Kodetron wrapper/Kodetron/build/tests/kodetron_tests_autogen/timestamp	ab039a409c8db8e8
+8251	8367	7749994680212972	D:/Hackeando/Kodetron wrapper/Kodetron/build/tests/kodetron_tests_autogen/mocs_compilation.cpp	ab039a409c8db8e8
+8367	8412	7749994680479847	tests/CMakeFiles/kodetron_tests.dir/kodetron_tests_autogen/mocs_compilation.cpp.obj	7081ac27d5518683
+8412	8600	7749994680930127	kodetron_tests.exe	16139a126e4e7629

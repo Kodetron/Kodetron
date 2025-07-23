@@ -20,7 +20,7 @@ void ExplorerSection::assignObjectNames() {
     setObjectName("explorer_section");
 }
 void ExplorerSection::applyQtStyles() {
-    layout->setContentsMargins(0, 10, 10, 10);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     explorer_card->setStyleSheet("background-color: #000000; border: none; border-radius: 4px;");
 }
